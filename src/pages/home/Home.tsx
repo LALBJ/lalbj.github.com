@@ -9,7 +9,7 @@ const Home = ({}: Props) => {
   return (
     <>
       <Header />
-      <div className="home">
+      <div className="container">
         <Posts />
         <Sidebar />
       </div>

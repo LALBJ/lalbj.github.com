@@ -8,7 +8,7 @@ export const Single = (props: Props) => {
   return (
     <div className="single">
       <SinglePost />
-      <SideBar />
+      {/* <SideBar /> */}
     </div>
   );
 };
