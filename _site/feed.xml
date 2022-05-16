@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ShiLiu</title>
+    <description></description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 16 May 2022 19:06:36 +0800</pubDate>
+    <lastBuildDate>Mon, 16 May 2022 19:06:36 +0800</lastBuildDate>
+    <generator>Jekyll v4.2.2</generator>
+    
+      <item>
+        <title>canvas动画之速度与加速度</title>
+        <description>
+本文将开始讲述动画编程的部分，会从基本的运动属性开始：速度、向量和加速度
+
+&lt;ul&gt;
+  &lt;li&gt;速度&lt;/li&gt;
+  &lt;li&gt;加速度&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 25 Jul 2021 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2021/07/25/velocity-acceleration/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/07/25/velocity-acceleration/</guid>
+        
+        <category>动画</category>
+        
+        <category>Canvas</category>
+        
+        <category>速度</category>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>canvas 绘图技术与图片处理</title>
+        <description>
+本文将讲述一些 canvas 相关的绘图技术，其中包括：
+
+&lt;ul&gt;
+  &lt;li&gt;绘图 API&lt;/li&gt;
+  &lt;li&gt;图片加载&lt;/li&gt;
+  &lt;li&gt;像素处理&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 22 Jul 2021 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2021/07/22/canvas-draw/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/07/22/canvas-draw/</guid>
+        
+        <category>动画</category>
+        
+        <category>Canvas</category>
+        
+        <category>绘图</category>
+        
+        <category>图片</category>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>动画中的三角学</title>
+        <description>
+本文将讲述一些 canvas 动画绘图中三角学的应用，其中包括：
+
+&lt;ul&gt;
+  &lt;li&gt;三角函数&lt;/li&gt;
+  &lt;li&gt;旋转&lt;/li&gt;
+  &lt;li&gt;波形&lt;/li&gt;
+  &lt;li&gt;圆与椭圆&lt;/li&gt;
+  &lt;li&gt;勾股定理&lt;/li&gt;
+  &lt;li&gt;两点间距离&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 13 Jul 2021 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2021/07/13/tri-in-animation/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/07/13/tri-in-animation/</guid>
+        
+        <category>动画</category>
+        
+        <category>Canvas</category>
+        
+        <category>三角</category>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>前端弹性动画与 framer-motion 动画库初探</title>
+        <description>
+前端动画的开发一直是我所热衷探索与研究的内容，本文将描述什么是拟真的动画效果，目前所流行的 React 动画库，以及一些基于 framer-motion 动画库的 demos。
+</description>
+        <pubDate>Mon, 01 Mar 2021 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2021/03/01/spring-animation-framer-motion/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/03/01/spring-animation-framer-motion/</guid>
+        
+        <category>动画</category>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>React Hooks 系列之8 custom Hook</title>
+        <description>
+掌握 React Hooks api 将更好的帮助你在工作中使用，对 React 的掌握更上一层楼。本系列将使用大量实例代码和效果展示，非常易于初学者和复习使用。
+
+截至目前，学习了官方的这么多 hooks api，我们也可以创造一些自己的 hooks，甚至官方也在鼓励开发者将组件逻辑抽象到自定义 hooks 中，方便复用。
+
+自定义 Hook 是一个函数，其名称以 “use” 开头，函数内部可以调用其他的 Hook。
+
+通过自定义 Hook，可以将组件逻辑提取到可重用的函数中。
+</description>
+        <pubDate>Wed, 27 May 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/05/27/react-hooks8-customHooks/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/05/27/react-hooks8-customHooks/</guid>
+        
+        <category>React</category>
+        
+        <category>hooks</category>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>React Hooks 系列之7 useRef</title>
+        <description>
+掌握 React Hooks api 将更好的帮助你在工作中使用，对 React 的掌握更上一层楼。本系列将使用大量实例代码和效果展示，非常易于初学者和复习使用。
+
+接下来我们要一起学习 useRef hook，它可以让我们直接访问到组件中的的 Dom 节点。我们今天通过一个 input 输入框获取焦点的需求为例，来学习一下 useRef。
+</description>
+        <pubDate>Tue, 26 May 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/05/26/react-hooks7-useRef/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/05/26/react-hooks7-useRef/</guid>
+        
+        <category>React</category>
+        
+        <category>hooks</category>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>React Hooks 系列之6 useMemo</title>
+        <description>
+掌握 React Hooks api 将更好的帮助你在工作中使用，对 React 的掌握更上一层楼。本系列将使用大量实例代码和效果展示，非常易于初学者和复习使用。
+
+上一章，我们学习了 useCallback 来进行性能优化，关于性能优化还有另一个 hook api，那就是 useMemo，下面我们一起通过一个例子来看看。
+</description>
+        <pubDate>Tue, 19 May 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/05/19/react-hooks6-useMemo/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/05/19/react-hooks6-useMemo/</guid>
+        
+        <category>React</category>
+        
+        <category>hooks</category>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>React Hooks 系列之5 useCallback</title>
+        <description>
+掌握 React Hooks api 将更好的帮助你在工作中使用，对 React 的掌握更上一层楼。本系列将使用大量实例代码和效果展示，非常易于初学者和复习使用。
+
+在我们开始深入学习 useCallback 前，先回顾一下性能优化相关的内容，这将有助于我们理解什么是 useCallback，为什么使用它，以及怎么使用它。
+
+依然先从一个组件多次被复用的代码场景看起。
+</description>
+        <pubDate>Mon, 18 May 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/05/18/react-hooks5-useCallback/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/05/18/react-hooks5-useCallback/</guid>
+        
+        <category>React</category>
+        
+        <category>hooks</category>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>React Hooks 系列之4 useReducer</title>
+        <description>
+掌握 React Hooks api 将更好的帮助你在工作中使用，对 React 的掌握更上一层楼。本系列将使用大量实例代码和效果展示，非常易于初学者和复习使用。
+
+截止目前我们已经学习了3个hook api，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;useState&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;useEffect&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;useContext&lt;/code&gt;。接下来我们学习下一个 hook api，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;useReducer&lt;/code&gt;。首先我们将讲讲什么是 reducer，以及为什么使用 reducer。研究一下 JavaScript 中的 reducer 是什么，这将有助于理解 react hook 中的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;useReducer&lt;/code&gt;。好，现在开始吧。
+</description>
+        <pubDate>Wed, 13 May 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/05/13/react-hooks4-useReducer/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/05/13/react-hooks4-useReducer/</guid>
+        
+        <category>React</category>
+        
+        <category>hooks</category>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>React Hooks 系列之3 useContext</title>
+        <description>
+掌握 React Hooks api 将更好的帮助你在工作中使用，对 React 的掌握更上一层楼。本系列将使用大量实例代码和效果展示，非常易于初学者和复习使用。
+
+今天我们讲讲 Context 对象和 useContext 的使用方法。
+</description>
+        <pubDate>Tue, 12 May 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/05/12/react-hooks3-useContext/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/05/12/react-hooks3-useContext/</guid>
+        
+        <category>React</category>
+        
+        <category>hooks</category>
+        
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+  </channel>
+</rss>

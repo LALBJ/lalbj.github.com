@@ -1,0 +1,433 @@
+I""�<ul id="markdown-toc">
+  <li><a href="#绘图-api" id="markdown-toc-绘图-api">绘图 API</a>    <ul>
+      <li><a href="#鼠标绘图" id="markdown-toc-鼠标绘图">鼠标绘图</a></li>
+      <li><a href="#绘制曲线" id="markdown-toc-绘制曲线">绘制曲线</a>        <ul>
+          <li><a href="#二次贝塞尔曲线" id="markdown-toc-二次贝塞尔曲线">二次贝塞尔曲线</a></li>
+          <li><a href="#穿过控制点的二次贝塞尔曲线" id="markdown-toc-穿过控制点的二次贝塞尔曲线">穿过控制点的二次贝塞尔曲线</a></li>
+          <li><a href="#多条曲线" id="markdown-toc-多条曲线">多条曲线</a></li>
+          <li><a href="#闭合的多条曲线" id="markdown-toc-闭合的多条曲线">闭合的多条曲线</a></li>
+        </ul>
+      </li>
+      <li><a href="#图形与填充色" id="markdown-toc-图形与填充色">图形与填充色</a>        <ul>
+          <li><a href="#渐变色" id="markdown-toc-渐变色">渐变色</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#图片加载" id="markdown-toc-图片加载">图片加载</a>    <ul>
+      <li><a href="#绘制图片" id="markdown-toc-绘制图片">绘制图片</a></li>
+      <li><a href="#操作像素" id="markdown-toc-操作像素">操作像素</a></li>
+    </ul>
+  </li>
+  <li><a href="#总结" id="markdown-toc-总结">总结</a></li>
+</ul>
+
+<p>本文将讲述一些 canvas 相关的绘图技术，其中包括：</p>
+
+<ul>
+  <li>绘图 API</li>
+  <li>图片加载</li>
+  <li>像素处理</li>
+</ul>
+
+<h1 id="绘图-api">绘图 API</h1>
+
+<p>相关 api 可参考，这里不展开详讲。</p>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D">CanvasRenderingContext2D</a></li>
+</ul>
+
+<!-- ## 常用绘图 api
+
+- 填充和描边样式
+  - `strokeStyle`
+    - `strokeStyle` 是 Canvas 2D API 描述画笔（绘制图形）颜色或者样式的属性。默认值是 #000。
+  - `fillStyle`
+    - `fillStyle` 是 Canvas 2D API 使用内部方式描述颜色和样式的属性。默认值是 #000 （黑色）。
+- 绘制矩形
+  - `fillRect(x, y, width, height)`
+    - `fillRect()` 方法绘制一个填充了内容的矩形，这个矩形的开始点（左上点）在 `(x, y)` ，它的宽度和高度分别由 `width` 和 `height` 确定，填充样式由当前的 `fillStyle` 决定。
+  - `strokeRect(x, y, width, height)`
+    - `strokeRect()` 方法绘制一个描边矩形，其起点为(x, y) ，其大小由宽度和高度指定。
+  - `clearRect(x, y, width, height)`
+    - 设置指定矩形区域内（以 点 (x, y) 为起点，范围是(width, height) ）所有像素变成透明，并擦除之前绘制的所有内容。
+- 绘制文本
+  - `fillText(text, x, y, [maxWidth])`
+    - 在(x,y)位置绘制（填充）文本。使用当前的 font, textAlign, textBaseline 和 direction 值对文本进行渲染。`maxWidth` 绘制的最大宽度。如果指定了值，并且经过计算字符串的值比最大宽度还要宽，字体为了适应会水平缩放（如果通过水平缩放当前字体，可以进行有效的或者合理可读的处理）或者使用小号的字体。
+  - `strokeText(text, x, y [, maxWidth])`
+    - 在(x,y)位置绘制（描边）文本。
+  - `measureText(text)`
+    - 返回 TextMetrics 对象。 -->
+
+<p>下面举几个示例</p>
+
+<h2 id="鼠标绘图">鼠标绘图</h2>
+
+<p>代码如下：</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">"mainCanvas"</span> <span class="na">style=</span><span class="s">"background-color: #fff;"</span> <span class="na">width=</span><span class="s">"800"</span> <span class="na">height=</span><span class="s">"400"</span><span class="nt">&gt;&lt;/canvas&gt;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">canvas</span><span class="p">:</span> <span class="nx">HTMLCanvasElement</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#mainCanvas</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">canvas</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="dl">'</span><span class="s1">2d</span><span class="dl">'</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">{</span> <span class="nx">offsetLeft</span><span class="p">,</span> <span class="nx">offsetTop</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">canvas</span>
+    <span class="kd">let</span> <span class="nx">x</span>
+    <span class="kd">let</span> <span class="nx">y</span>
+
+    <span class="kd">const</span> <span class="nx">mouseMoveHandler</span> <span class="o">=</span> <span class="p">(</span><span class="nx">e</span><span class="p">:</span> <span class="nx">MouseEvent</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">x</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">pageX</span>
+      <span class="nx">y</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">pageY</span>
+      <span class="nx">x</span> <span class="o">-=</span> <span class="nx">offsetLeft</span>
+      <span class="nx">y</span> <span class="o">-=</span> <span class="nx">offsetTop</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">lineCap</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">round</span><span class="dl">'</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">lineJoin</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">round</span><span class="dl">'</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">stroke</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">mousedown</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">()</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">pageX</span> <span class="o">-</span> <span class="nx">offsetLeft</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">pageY</span> <span class="o">-</span> <span class="nx">offsetTop</span><span class="p">)</span>
+      <span class="nx">canvas</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">mousemove</span><span class="dl">'</span><span class="p">,</span> <span class="nx">mouseMoveHandler</span><span class="p">)</span>
+    <span class="p">})</span>
+
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">mouseup</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">canvas</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">mousemove</span><span class="dl">'</span><span class="p">,</span> <span class="nx">mouseMoveHandler</span><span class="p">)</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>效果如下</p>
+
+<p><img src="https://gw.alicdn.com/imgextra/i4/O1CN01Z3BgUp1dKtGTH8pIA_!!6000000003718-1-tps-789-380.gif" alt="" /></p>
+
+<p>demo 链接 <a href="https://gaohaoyang.github.io/canvas-practice/09-mouse-draw/">https://gaohaoyang.github.io/canvas-practice/09-mouse-draw/</a></p>
+
+<p>源码链接 <a href="https://github.com/Gaohaoyang/canvas-practice/blob/main/src/09-mouse-draw/index.ts">https://github.com/Gaohaoyang/canvas-practice/blob/main/src/09-mouse-draw/index.ts</a></p>
+
+<h2 id="绘制曲线">绘制曲线</h2>
+
+<h3 id="二次贝塞尔曲线">二次贝塞尔曲线</h3>
+
+<p>具体 api 可参考文档 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/quadraticCurveTo">CanvasRenderingContext2D.quadraticCurveTo()</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctx.quadraticCurveTo(cpx, cpy, x, y);
+</code></pre></div></div>
+
+<p>它需要2个点。第一个点是控制点，第二个点是终点。起始点是当前路径最新的点，当创建二次贝赛尔曲线之前，可以使用 <code class="language-plaintext highlighter-rouge">moveTo()</code> 方法进行改变。</p>
+
+<p>接下来实现一个 demo，用鼠标位置作为控制点，控制这个二次贝塞尔曲线。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">canvas</span><span class="p">:</span> <span class="nx">HTMLCanvasElement</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#mainCanvas</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">canvas</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="dl">'</span><span class="s1">2d</span><span class="dl">'</span><span class="p">)</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">offsetLeft</span><span class="p">,</span> <span class="nx">offsetTop</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">canvas</span>
+
+  <span class="kd">const</span> <span class="nx">x0</span> <span class="o">=</span> <span class="mi">300</span>
+  <span class="kd">const</span> <span class="nx">y0</span> <span class="o">=</span> <span class="mi">100</span>
+  <span class="kd">const</span> <span class="nx">x1</span> <span class="o">=</span> <span class="mi">600</span>
+  <span class="kd">const</span> <span class="nx">y1</span> <span class="o">=</span> <span class="mi">300</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">mousemove</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span>
+      <span class="kd">const</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">pageX</span> <span class="o">-</span> <span class="nx">offsetLeft</span>
+      <span class="kd">const</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">pageY</span> <span class="o">-</span> <span class="nx">offsetTop</span>
+
+      <span class="nx">context</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">()</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">x0</span><span class="p">,</span> <span class="nx">y0</span><span class="p">)</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">quadraticCurveTo</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">)</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">stroke</span><span class="p">()</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>效果如下</p>
+
+<p><img src="https://gw.alicdn.com/imgextra/i1/O1CN014ZVi8S1iP4xncnamu_!!6000000004404-1-tps-789-380.gif" alt="" /></p>
+
+<p>demo 链接 <a href="https://gaohaoyang.github.io/canvas-practice/10-quadratic/">https://gaohaoyang.github.io/canvas-practice/10-quadratic/</a></p>
+
+<p>源码链接 <a href="https://github.com/Gaohaoyang/canvas-practice/blob/main/src/10-quadratic/index.ts">https://github.com/Gaohaoyang/canvas-practice/blob/main/src/10-quadratic/index.ts</a></p>
+
+<h3 id="穿过控制点的二次贝塞尔曲线">穿过控制点的二次贝塞尔曲线</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">canvas</span><span class="p">:</span> <span class="nx">HTMLCanvasElement</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#mainCanvas</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">canvas</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="dl">'</span><span class="s1">2d</span><span class="dl">'</span><span class="p">)</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">offsetLeft</span><span class="p">,</span> <span class="nx">offsetTop</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">canvas</span>
+
+  <span class="kd">const</span> <span class="nx">x0</span> <span class="o">=</span> <span class="mi">300</span>
+  <span class="kd">const</span> <span class="nx">y0</span> <span class="o">=</span> <span class="mi">100</span>
+  <span class="kd">const</span> <span class="nx">x1</span> <span class="o">=</span> <span class="mi">600</span>
+  <span class="kd">const</span> <span class="nx">y1</span> <span class="o">=</span> <span class="mi">300</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">mousemove</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span>
+      <span class="kd">const</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">pageX</span> <span class="o">-</span> <span class="nx">offsetLeft</span>
+      <span class="kd">const</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">pageY</span> <span class="o">-</span> <span class="nx">offsetTop</span>
+
+      <span class="kd">const</span> <span class="nx">cpx</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="nx">x0</span> <span class="o">+</span> <span class="nx">x1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+      <span class="kd">const</span> <span class="nx">cpy</span> <span class="o">=</span> <span class="nx">y</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="nx">y0</span> <span class="o">+</span> <span class="nx">y1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+
+      <span class="nx">context</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">()</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">x0</span><span class="p">,</span> <span class="nx">y0</span><span class="p">)</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">quadraticCurveTo</span><span class="p">(</span><span class="nx">cpx</span><span class="p">,</span> <span class="nx">cpy</span><span class="p">,</span> <span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">)</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">stroke</span><span class="p">()</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>其核心是</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">cpx</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="nx">x0</span> <span class="o">+</span> <span class="nx">x1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="kd">const</span> <span class="nx">cpy</span> <span class="o">=</span> <span class="nx">y</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="nx">y0</span> <span class="o">+</span> <span class="nx">y1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</code></pre></div></div>
+
+<p>效果如下</p>
+
+<p><img src="https://gw.alicdn.com/imgextra/i1/O1CN0141W6VM1dv4YGBPGuG_!!6000000003797-1-tps-789-380.gif" alt="" /></p>
+
+<p>demo 链接 <a href="https://gaohaoyang.github.io/canvas-practice/11-quadratic-through/">https://gaohaoyang.github.io/canvas-practice/11-quadratic-through/</a></p>
+
+<p>源码链接 <a href="https://github.com/Gaohaoyang/canvas-practice/blob/main/src/11-quadratic-through/index.ts">https://github.com/Gaohaoyang/canvas-practice/blob/main/src/11-quadratic-through/index.ts</a></p>
+
+<h3 id="多条曲线">多条曲线</h3>
+
+<p>绘制平滑的曲线，用多个点控制</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Ball</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../common/Ball</span><span class="dl">'</span>
+
+<span class="kd">const</span> <span class="nx">canvas</span><span class="p">:</span> <span class="nx">HTMLCanvasElement</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#mainCanvas</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">canvas</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="dl">'</span><span class="s1">2d</span><span class="dl">'</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">ctx</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">points</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="kd">const</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">4</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">num</span><span class="p">;</span> <span class="nx">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">ball</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Ball</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+      <span class="kd">const</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span>
+      <span class="kd">const</span> <span class="nx">y</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span>
+      <span class="nx">points</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+        <span class="nx">x</span><span class="p">,</span>
+        <span class="nx">y</span><span class="p">,</span>
+      <span class="p">})</span>
+      <span class="nx">ball</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span>
+      <span class="nx">ball</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">y</span>
+      <span class="nx">ball</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">()</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">points</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">x</span><span class="p">,</span> <span class="nx">points</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">y</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">num</span> <span class="o">-</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">xAv</span> <span class="o">=</span> <span class="p">(</span><span class="nx">points</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">points</span><span class="p">[</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">].</span><span class="nx">x</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+      <span class="kd">const</span> <span class="nx">yAv</span> <span class="o">=</span> <span class="p">(</span><span class="nx">points</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">points</span><span class="p">[</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">].</span><span class="nx">y</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+      <span class="nx">ctx</span><span class="p">.</span><span class="nx">quadraticCurveTo</span><span class="p">(</span><span class="nx">points</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">x</span><span class="p">,</span> <span class="nx">points</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">y</span><span class="p">,</span> <span class="nx">xAv</span><span class="p">,</span> <span class="nx">yAv</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">quadraticCurveTo</span><span class="p">(</span><span class="nx">points</span><span class="p">[</span><span class="nx">num</span> <span class="o">-</span> <span class="mi">2</span><span class="p">].</span><span class="nx">x</span><span class="p">,</span> <span class="nx">points</span><span class="p">[</span><span class="nx">num</span> <span class="o">-</span> <span class="mi">2</span><span class="p">].</span><span class="nx">y</span><span class="p">,</span> <span class="nx">points</span><span class="p">[</span><span class="nx">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">x</span><span class="p">,</span> <span class="nx">points</span><span class="p">[</span><span class="nx">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">y</span><span class="p">)</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">()</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>xAv, yAv 围边设置为循环中当前点和后续点的x,y坐标的平均值，这样就能绘制一条平滑的曲线了</p>
+
+<p>效果如下</p>
+
+<p><img src="https://gw.alicdn.com/imgextra/i1/O1CN01IMWRyw1RDliYwzPpA_!!6000000002078-1-tps-789-380.gif" alt="" /></p>
+
+<p>demo 链接 <a href="https://gaohaoyang.github.io/canvas-practice/12-multi-quadratic/">https://gaohaoyang.github.io/canvas-practice/12-multi-quadratic/</a></p>
+
+<p>源码链接 <a href="https://github.com/Gaohaoyang/canvas-practice/blob/main/src/12-multi-quadratic/index.ts">https://github.com/Gaohaoyang/canvas-practice/blob/main/src/12-multi-quadratic/index.ts</a></p>
+
+<h3 id="闭合的多条曲线">闭合的多条曲线</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Ball</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../common/Ball</span><span class="dl">'</span>
+
+<span class="kd">const</span> <span class="nx">canvas</span><span class="p">:</span> <span class="nx">HTMLCanvasElement</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#mainCanvas</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">canvas</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="dl">'</span><span class="s1">2d</span><span class="dl">'</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">ctx</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">points</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="kd">const</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">4</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">num</span><span class="p">;</span> <span class="nx">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">ball</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Ball</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+      <span class="kd">const</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span>
+      <span class="kd">const</span> <span class="nx">y</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span>
+      <span class="nx">points</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+        <span class="nx">x</span><span class="p">,</span>
+        <span class="nx">y</span><span class="p">,</span>
+      <span class="p">})</span>
+      <span class="nx">ball</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span>
+      <span class="nx">ball</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">y</span>
+      <span class="nx">ball</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">const</span> <span class="nx">xAv1</span> <span class="o">=</span> <span class="p">(</span><span class="nx">points</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">points</span><span class="p">[</span><span class="nx">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">x</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="kd">const</span> <span class="nx">yAv1</span> <span class="o">=</span> <span class="p">(</span><span class="nx">points</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">points</span><span class="p">[</span><span class="nx">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">y</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">()</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">xAv1</span><span class="p">,</span> <span class="nx">yAv1</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">xAv</span> <span class="o">=</span> <span class="p">(</span><span class="nx">points</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">points</span><span class="p">[</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">].</span><span class="nx">x</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+      <span class="kd">const</span> <span class="nx">yAv</span> <span class="o">=</span> <span class="p">(</span><span class="nx">points</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">points</span><span class="p">[</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">].</span><span class="nx">y</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+      <span class="nx">ctx</span><span class="p">.</span><span class="nx">quadraticCurveTo</span><span class="p">(</span><span class="nx">points</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">x</span><span class="p">,</span> <span class="nx">points</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">y</span><span class="p">,</span> <span class="nx">xAv</span><span class="p">,</span> <span class="nx">yAv</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">quadraticCurveTo</span><span class="p">(</span><span class="nx">points</span><span class="p">[</span><span class="nx">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">x</span><span class="p">,</span> <span class="nx">points</span><span class="p">[</span><span class="nx">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">y</span><span class="p">,</span> <span class="nx">xAv1</span><span class="p">,</span> <span class="nx">yAv1</span><span class="p">)</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">()</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><img src="https://gw.alicdn.com/imgextra/i2/O1CN01sXkKam1UQ5DPHL8Kf_!!6000000002511-1-tps-789-380.gif" alt="" /></p>
+
+<p>demo 链接 <a href="https://gaohaoyang.github.io/canvas-practice/13-multi-quadratic-close/">https://gaohaoyang.github.io/canvas-practice/13-multi-quadratic-close/</a></p>
+
+<p>源码链接 <a href="https://github.com/Gaohaoyang/canvas-practice/blob/main/src/13-multi-quadratic-close/index.ts">https://github.com/Gaohaoyang/canvas-practice/blob/main/src/13-multi-quadratic-close/index.ts</a></p>
+
+<h2 id="图形与填充色">图形与填充色</h2>
+
+<p>一般来说绘图顺序如下：</p>
+
+<ul>
+  <li>beginPath 开始绘制</li>
+  <li>moveTo 移动起点</li>
+  <li>lineStyle 线样式</li>
+  <li>fillStyle 填充样式</li>
+  <li>lineTo 或 quadraticCurveTo 等绘制曲线</li>
+  <li>closePath 闭合</li>
+  <li>fill 填充</li>
+  <li>stroke 描边</li>
+</ul>
+
+<h3 id="渐变色">渐变色</h3>
+
+<p><code class="language-plaintext highlighter-rouge">ctx.createLinearGradient(x0, y0, x1, y1)</code></p>
+
+<p>createLinearGradient() 方法需要指定四个参数，分别表示渐变线段的开始和结束点。</p>
+
+<p><code class="language-plaintext highlighter-rouge">ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise)</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">arc()</code> 是 Canvas 2D API 绘制圆弧路径的方法。 圆弧路径的圆心在 (x, y) 位置，半径为 r ，根据anticlockwise （默认为顺时针）指定的方向从 startAngle 开始绘制，到 endAngle 结束。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">canvas</span><span class="p">:</span> <span class="nx">HTMLCanvasElement</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#mainCanvas</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">canvas</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="dl">'</span><span class="s1">2d</span><span class="dl">'</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">ctx</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">()</span>
+    <span class="kd">const</span> <span class="nx">gradient</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">createLinearGradient</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+    <span class="nx">gradient</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="dl">'</span><span class="s1">#ff0000</span><span class="dl">'</span><span class="p">)</span>
+    <span class="nx">gradient</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="dl">'</span><span class="s1">#000000</span><span class="dl">'</span><span class="p">)</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">gradient</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+    <span class="kd">const</span> <span class="nx">gradient2</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">createLinearGradient</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+    <span class="nx">gradient2</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="dl">'</span><span class="s1">#ff0000</span><span class="dl">'</span><span class="p">)</span>
+    <span class="nx">gradient2</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="dl">'</span><span class="s1">#008880</span><span class="dl">'</span><span class="p">)</span>
+    <span class="nx">gradient2</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="dl">'</span><span class="s1">#000000</span><span class="dl">'</span><span class="p">)</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">gradient2</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+    <span class="kd">const</span> <span class="nx">gradient3</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">createRadialGradient</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="nx">gradient3</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="dl">'</span><span class="s1">#000000</span><span class="dl">'</span><span class="p">)</span>
+    <span class="nx">gradient3</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="dl">'</span><span class="s1">#ff0000</span><span class="dl">'</span><span class="p">)</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">)</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">gradient3</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">fill</span><span class="p">()</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>效果如下：</p>
+
+<p><img src="https://gw.alicdn.com/imgextra/i4/O1CN013amNZU1d9tlIvGgim_!!6000000003694-2-tps-1588-788.png" alt="" /></p>
+
+<p>demo 链接 <a href="https://gaohaoyang.github.io/canvas-practice/14-gradient/">https://gaohaoyang.github.io/canvas-practice/14-gradient/</a></p>
+
+<p>源码链接 <a href="https://github.com/Gaohaoyang/canvas-practice/blob/main/src/14-gradient/index.ts">https://github.com/Gaohaoyang/canvas-practice/blob/main/src/14-gradient/index.ts</a></p>
+
+<h1 id="图片加载">图片加载</h1>
+
+<p>有些场景，可能需要在 canvas 内绘制一张图片，接下来我们看看绘制图片的方式</p>
+
+<h2 id="绘制图片">绘制图片</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">canvas</span><span class="p">:</span> <span class="nx">HTMLCanvasElement</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#mainCanvas</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">canvas</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="dl">'</span><span class="s1">2d</span><span class="dl">'</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">ctx</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">img</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">()</span>
+    <span class="nx">img</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://gw.alicdn.com/imgextra/i2/O1CN01gR6ymq1dfV5RmYxYk_!!6000000003763-2-tps-658-411.png</span><span class="dl">'</span>
+    <span class="nx">img</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">load</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">ctx</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">img</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">658</span><span class="p">,</span> <span class="mi">329</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>效果如下</p>
+
+<p><img src="https://gw.alicdn.com/imgextra/i2/O1CN01l8iuWx1dCBk4FiWnp_!!6000000003699-2-tps-1624-826.png" alt="" /></p>
+
+<p>demo 链接 <a href="https://gaohaoyang.github.io/canvas-practice/15-image/">https://gaohaoyang.github.io/canvas-practice/15-image/</a></p>
+
+<p>源码链接 <a href="https://github.com/Gaohaoyang/canvas-practice/blob/main/src/15-image/index.ts">https://github.com/Gaohaoyang/canvas-practice/blob/main/src/15-image/index.ts</a></p>
+
+<h2 id="操作像素">操作像素</h2>
+
+<p>接下来我们尝试将上述demo中的所有绿色像素移除，看看是什么效果</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">canvas</span><span class="p">:</span> <span class="nx">HTMLCanvasElement</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#mainCanvas</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">canvas</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="dl">'</span><span class="s1">2d</span><span class="dl">'</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">ctx</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">img</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">()</span>
+    <span class="nx">img</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">../assets/1.png</span><span class="dl">'</span>
+    <span class="nx">img</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">load</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">ctx</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">img</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">658</span><span class="p">,</span> <span class="mi">329</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span>
+
+      <span class="kd">const</span> <span class="nx">imageData</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">getImageData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span>
+      <span class="kd">const</span> <span class="nx">pixels</span> <span class="o">=</span> <span class="nx">imageData</span><span class="p">.</span><span class="nx">data</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">pixels</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">+=</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">pixels</span><span class="p">[</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="p">}</span>
+      <span class="nx">ctx</span><span class="p">.</span><span class="nx">putImageData</span><span class="p">(</span><span class="nx">imageData</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>效果如下：</p>
+
+<p><img src="https://gw.alicdn.com/imgextra/i4/O1CN01xBiumq1CvXKhyFYn9_!!6000000000143-2-tps-800-400.png" alt="" /></p>
+
+<p>demo 链接 <a href="https://gaohaoyang.github.io/canvas-practice/16-image-pixel/">https://gaohaoyang.github.io/canvas-practice/16-image-pixel/</a></p>
+
+<p>源码链接 <a href="https://github.com/Gaohaoyang/canvas-practice/blob/main/src/16-image-pixel/index.ts">https://github.com/Gaohaoyang/canvas-practice/blob/main/src/16-image-pixel/index.ts</a></p>
+
+<h1 id="总结">总结</h1>
+
+<p>本文虽然没有涉及过多动画，但还是举例介绍了 canvas 2d 绘图的方式，并且介绍了如何加载图片与操作像素。这为后续的动画学习垫定了基础。</p>
+:ET
