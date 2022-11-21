@@ -99,7 +99,14 @@ class PCA():
         return np.matmul(X, eigenvectors)
 ```
 
+关于代码完整实现可以参考我的 [github](https://github.com/LALBJ/Deep-Learning-Models-Pytorch/blob/master/UL/decomposition/PCA.ipynb) 
+
 ## 使用技巧
 1. 关于数据是采用规范化处理还是均值0化处理：关于该问题的详细讨论可以参考后面附的参考文献，这个问题的结论的话呢就是具体问题具体分析。如果你想要消除不同单位及量级对于降维结果的影响就使用规范化的处理，否则就采用均值0化的处理；如果数据的特征由多个不同单位的特征，采用规范化处理一般会更好。这里举个例子，对于一个以千米作为单位的特征，如果将其转化为毫米，特征的方差就会变大，因此该特征对于降维结果的贡献度也就越高了。
 2. PCA 处理过程的特征值代表特征的重要程度，特征向量代表不同特征对于特征值的贡献度，如果使用 sklearn 的话可以使用 .components_ 这一 API 输出各个特征对于主成分的贡献度。
 3. 与聚类方法结合进行使用，这个也是引起广泛讨论的一个问题，将数据降维结果进行聚类是否合理？关于这一问题的答案是，不合理。因为无论是 PCA 还是 t-SNE 在进行降维的过程中都损失了一些高维空间距离信息，针对于这个结果再进行降维处理显然是不合理的
+
+## 参考文献
+1. 《统计学习方法》
+2. [Why do you need to standardize of your data before you apply a PCA?](https://www.quora.com/Why-do-you-need-to-standardize-zero-mean-unit-variance-of-your-data-before-you-apply-a-PCA-Which-important-assumptions-does-PCA-make)
+3. [Clustering on the output of t-SNE](https://stats.stackexchange.com/questions/263539/clustering-on-the-output-of-t-sne)
