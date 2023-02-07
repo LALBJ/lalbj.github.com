@@ -20,7 +20,7 @@ tags:
 
 ## 2 模型
 
-我们使用 $x_i\in \mathbb{R}^k$ 表示句子中第 i 个单词的 k 维向量。长度为 n 的句子（因为句子长度可变，所以需要使用填充）表示为：
+我们使用 $x_i\in \mathbb{R}^k$ 表示句子中第 i 个单词的 k 维向量。长度为 n 的句子（因为句子长度可变，所以q需要使用填充）表示为：
 $$
 \begin{equation}
 x_{1:n} = x_1 \oplus x_2 \oplus ... \oplus x_n,
