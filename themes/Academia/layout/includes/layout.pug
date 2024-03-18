@@ -7,6 +7,7 @@ html(lang=config.language)
         title=config.title
         meta(name="author" content=config.author)
         !=favicon_tag(config.favicon || theme.favicon || '/favicon.ico')
+        meta(name="google-site-verification" content="qVCzJaGkx9OyBM04xGt0ql8QeTxBGvAHwrz9cbc4iLI")
         each item in theme.CDN_USE.css
             link(rel='stylesheet', href=url_for(item))
     body

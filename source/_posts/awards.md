@@ -18,4 +18,4 @@ academia: true
 - National Post-Graduate Mathematical Contest in Modeling, National Second Prize, 2021
 - Competition of Service Outsourcing and Entrepreneurship Innovation, National Second Prize, 2020
 - Competition of Service Outsourcing and Entrepreneurship Innovation, First Prize of Hunan Province, 2020
-- MCM/ICM M Prize, 2019
+- MCM/ICM Meritorious Prize, 2019
