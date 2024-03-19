@@ -4,10 +4,17 @@ html(lang=config.language)
         meta(charset='UTF-8')
         meta(http-equiv="X-UA-Compatible" content="IE=edge")
         meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5")
+        // begin SEO
         title=config.title
-        meta(name="author" content=config.author)
-        !=favicon_tag(config.favicon || theme.favicon || '/favicon.ico')
+        meta(property="og:site_name" content=config.site_name)
+        meta(property="og:author" content=config.author)
+        link(rel="canonical" href=config.canonical)
+        meta(property="og:url" content=config.url)
+        meta(property="og:description", content=config.description)
         meta(name="google-site-verification" content="qVCzJaGkx9OyBM04xGt0ql8QeTxBGvAHwrz9cbc4iLI")
+        // end SEO
+
+        !=favicon_tag(config.favicon || theme.favicon || '/favicon.ico')
         each item in theme.CDN_USE.css
             link(rel='stylesheet', href=url_for(item))
     body

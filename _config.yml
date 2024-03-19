@@ -3,12 +3,14 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Shi Liu
+title: Shi Liu (刘实) - Homepage
 subtitle: ''
-description: ''
 keywords:
 author: Shi Liu
 language: en
+site_name: Shi Liu (刘实)
+canoical: https://lalbj.github.io/
+description: 'M.S. student Shi Liu at Zhejiang University. Focusing on multimodal.'
 timezone: ''
 
 # URL
