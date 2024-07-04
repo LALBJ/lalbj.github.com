@@ -134,4 +134,26 @@ body {
 }
 
 
+.highlight {
+  color: #ffffff; /* 字体颜色 */
+  background-color: #007acc; /* 背景颜色 */
+  padding: 0 5px; /* 填充 */
+  border-radius: 5px; /* 圆角边框 */
+  font-weight: bold; /* 加粗 */
+}
 
+.soft-highlight {
+  background-color: #e0f7fa; /* 非常浅的冷色系蓝绿色背景 */
+  color: #004d40; /* 深蓝绿色字体颜色 */
+  padding: 2px 4px; /* 轻微的填充 */
+  border-radius: 3px; /* 小圆角 */
+  font-weight: bold !important;
+}
+
+.my-item {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  /* border: 1px solid #ccc; 便于观察效果 */
+  flex-direction: column;
+}
