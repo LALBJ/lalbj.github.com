@@ -157,3 +157,35 @@ body {
   /* border: 1px solid #ccc; 便于观察效果 */
   flex-direction: column;
 }
+
+.my-card {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 20px;
+  font-size: 1rem;
+}
+
+.my-card-body {
+  padding: 20px;
+}
+
+.my-card-body:first-child {
+  flex: 4; /* 4 parts */
+  border-right: 1px solid #ccc;
+}
+
+.my-card-body:last-child {
+  flex: 6; /* 6 parts */
+}
+
+.my-card-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.my-card-content {
+  margin-bottom: 20px;
+}

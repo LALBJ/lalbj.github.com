@@ -288,21 +288,36 @@
         <div class="container">
           <h2 class="title is-3">More Show Cases</h2>
           <div id="results-carousel" class="carousel results-carousel">
-            <div class="item my-item">
-              <!-- Your image here -->
-              <img src="static/images/llava_qual_case.png" alt="CHAIR Results" />
+            <div class="item">
+              <!-- Costom Card -->
+               <div class="my-card">
+                <!-- Left Body -->
+                  <div class="my-card-body">
+                    <div class="my-card-header">Input Image:</div>
+                    <div class="my-card-content"><img src="static/images/test.png" alt="CHAIR Results" /></div>
+                    <div class="my-card-header">Instruction:</div>
+                    <div class="my-card-content">Please describe the image in detail.</div>
+                  </div>
+                  <!-- Right Body -->
+                  <div class="my-card-body">
+                    <div class="my-card-header">LLaVA-1.5(Greedy)</div>
+                    <div class="my-card-content">This image describe a ...</div>
+                    <div class="my-card-header">LLaVA-1.5(PAI)</div>
+                    <div class="my-card-content">This image describe a ...</div>
+                  </div>
+               </div>
               <h2 class="subtitle has-text-centered">
                 PAI's performance on reducing hallucinations of LLaVA-1.5-7B.
               </h2>
             </div>
-            <div class="item my-item">
+            <div class="item">
               <!-- Your image here -->
               <img src="static/images/minigpt4_qual_case.png" alt="POPE Results" />
               <h2 class="subtitle has-text-centered">
                 PAI's performance on reducing hallucinations of Minigpt4.
               </h2>
             </div>
-            <div class="item my-item">
+            <div class="item">
               <!-- Your image here -->
               <img src="static/images/shikra_qual_case.png" alt="POPE Results" />
               <h2 class="subtitle has-text-centered">
