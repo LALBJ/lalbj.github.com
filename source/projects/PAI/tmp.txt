@@ -1,0 +1,59 @@
+Instruction: Please describe the image in detail.
+
+Minigpt4(Greedy): 
+This image shows a busy street with cars parked on both sides of the road. The buildings on either side of the street are tall and white, with large billboards on the sides. The sky is cloudy and dark, with a few dark clouds visible in the distance. The street is lined with trees and streetlights. 
+Minigpt4(PAI): 
+This image shows a busy city street with cars parked on the side of the road. The building in the background is a tall white building with a large billboard on the side. The billboard has a blue and white design on it. There are also several motorcycles parked on the side of the road. 
+
+
+Instruction: Please describe the image in detail.
+
+Minigpt4(Greedy): 
+This image shows a pizza with various toppings, including peppers, onions, and mushrooms, on a piece of parchment paper. The pizza appears to be cut into slices, with some slices missing. There is a knife and fork next to the pizza, and a bottle of tomato sauce on the table in the background.
+Minigpt4(PAI): 
+This image shows a pizza that has been cut into slices and is sitting on a piece of parchment paper. The pizza has a variety of toppings, including peppers, onions, and mushrooms, and is covered in a thick layer of cheese. A knife is visible in the foreground, next to the pizza. 
+
+
+Instruction: Please describe the image in detail.
+
+Minigpt4(Greedy): 
+The image shows a motorcycle parked in a field next to a tent. The tent is set up on a wooden platform and has a green tarp covering it. The motorcycle is parked on the grass and has a helmet on the handlebars. There are trees in the background and the sun is setting behind them. The sky is orange and pink, and there are clouds in the sky.
+Minigpt4(PAI): 
+This image shows a motorcycle parked in a field next to a tent. The tent is set up on a wooden platform and has a green tarp covering it. There are trees in the background and the sun is setting behind them. The motorcycle is parked on the ground next to the tent, and there are no other objects in the image.
+
+
+Instruction: Please describe the image in detail.
+
+Minigpt4(Greedy): 
+This image shows a stop sign on the side of a road, next to a brick wall. The stop sign has a red background with white letters that read "stop." There is a gate in the wall, with a black iron fence and a wooden door. The gate is closed, and there are no people or cars in the image. The trees on the other side of the road are in full bloom, with pink flowers covering the branches. The sky is clear and blue, with a few clouds in the distance.
+Minigpt4(PAI): 
+This image shows a stop sign on the side of a road, with a gate in the background. The stop sign has a red background with white letters that read "stop." The gate in the background is made of metal and has a black finish. There are some leaves on the ground next to the stop sign, and there are trees in the background.
+
+
+Instruction: Please describe the image in detail.
+
+Shikra(Greedy): 
+The image features a green and yellow train traveling down the tracks, passing by a station. The train appears to be a trolley-type train that is either leaving the station or pulling into it. There are several people around the train and the station, possibly waiting for the train or just going about their day.
+In addition to the train and people, there are a few traffic lights scattered around the scene. One traffic light is located near the top right corner, another one is positioned further to the right, and the third traffic light is on the left side of the image. The presence of these traffic lights suggests that the train is operating in an urban environment with well-organized transportation infrastructure.
+Shikra(PAI): 
+The image depicts a green and yellow train traveling down the train tracks, passing through a small town. The train is moving along the tracks that are situated above a grassy field. The scene also features a tree-lined sidewalk adjacent to the train tracks. 
+In the background, there are some pink flowers in bloom, adding a touch of color to the scene. The train tracks can be seen extending across the image, with the train positioned in the middle of the frame. The train appears to be a local commuter train, possibly heading towards a city or town.
+
+
+Instruction: Please describe the image in detail.
+
+Shikra(Greedy): 
+The image features a large elephant standing on a lush green field, eating grass using its trunk. The elephant is positioned in the center of the scene, and it appears to be enjoying a meal.
+In the background, there are several chairs scattered around the field, possibly for people to sit and observe the elephant. Additionally, there are two people in the scene, one near the left edge of the image and another closer to the center, both of them likely watching the elephant as it feeds.
+
+Shikra(PAI): 
+The image features a large elephant standing on a dirt field, eating a mouthful of green grass. The elephant is enjoying a meal consisting mainly of grass, as it is eating the grass in its mouth. The elephant is standing under a bamboo hut, which provides shade and shelter.\n\nThe image shows a large elephant standing in a field, eating grass by placing it in its mouth using its trunk. The scene captures the unique moment of the elephant enjoying its meal.
+
+
+Instruction: Please describe the image in detail.
+
+Shikra(Greedy): 
+The image features a small boat sailing across a large body of water, likely an ocean or a sea, under a cloudy sky. The boat is speeding through the water, cutting through the waves and creating a wake behind it.
+There are a few people on the boat, with one person visible on the left side and two other people on the right side of the boat. They seem to be enjoying their time on the water, possibly engaged in recreational activities or sightseeing.
+Shikra(PAI): 
+The image features a small red boat, resembling a red and white ship, speeding across the water with a large body of waves around it. The boat is moving quickly through the water, creating a wake in the ocean. The scene captures the excitement of an adventurous boat ride on the open ocean, providing a thrilling experience for those on board.
