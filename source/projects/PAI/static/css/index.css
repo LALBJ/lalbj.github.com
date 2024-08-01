@@ -163,7 +163,7 @@ body {
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 20px;
   font-size: 1rem;
 }
@@ -173,12 +173,12 @@ body {
 }
 
 .my-card-body:first-child {
-  flex: 4; /* 4 parts */
+  flex: 3; /* 4 parts */
   border-right: 1px solid #ccc;
 }
 
 .my-card-body:last-child {
-  flex: 6; /* 6 parts */
+  flex: 7; /* 6 parts */
 }
 
 .my-card-header {
@@ -188,4 +188,8 @@ body {
 
 .my-card-content {
   margin-bottom: 20px;
+}
+
+.hallucination {
+  color: red;
 }

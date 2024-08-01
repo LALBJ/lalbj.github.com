@@ -1,102 +1,79 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-    <!-- Replace the content tag with appropriate information -->
-    <meta name="description" content="DESCRIPTION META TAG" />
-    <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
-    <meta
-      property="og:description"
-      content="SOCIAL MEDIA DESCRIPTION TAG TAG"
-    />
-    <meta property="og:url" content="URL OF THE WEBSITE" />
-    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-    <meta property="og:image" content="static/image/your_banner_image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
 
-    <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG" />
-    <meta
-      name="twitter:description"
-      content="TWITTER BANNER DESCRIPTION META TAG"
-    />
-    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-    <meta
-      name="twitter:image"
-      content="static/images/your_twitter_banner_image.png"
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <!-- Keywords for your paper to be indexed by-->
-    <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+  <meta charset="utf-8" />
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG" />
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG" />
+  <meta property="og:url" content="URL OF THE WEBSITE" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
-    <title>
-      Paying More Attention to Image: A Training-Free Method for Alleviating
-      Hallucination in LVLMs
-    </title>
-    <link rel="icon" type="image/x-icon" href="static/images/PAI.webp" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-      rel="stylesheet"
-    />
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG" />
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="static/css/bulma.min.css" />
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css" />
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css" />
-    <link rel="stylesheet" href="static/css/fontawesome.all.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
-    />
-    <link rel="stylesheet" href="static/css/index.css" />
+  <title>
+    Paying More Attention to Image: A Training-Free Method for Alleviating
+    Hallucination in LVLMs
+  </title>
+  <link rel="icon" type="image/x-icon" href="static/images/PAI.webp" />
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-    <script defer src="static/js/fontawesome.all.min.js"></script>
-    <script src="static/js/bulma-carousel.min.js"></script>
-    <script src="static/js/bulma-slider.min.js"></script>
-    <script src="static/js/index.js"></script>
-  </head>
-  <body>
-    <section class="hero">
-      <div class="hero-body">
-        <div class="container is-max-desktop">
-          <div class="columns is-centered">
-            <div class="column has-text-centered">
-              <h1 class="title is-1 publication-title">
-                <img width="40px" src="static/images/PAI.webp" alt="logo" />
-                <span class="highlight">P</span>aying More
-                <span class="highlight">A</span>ttention to
-                <span class="highlight">I</span>mage: A Training-Free Method for
-                Alleviating Hallucination in LVLMs
-              </h1>
-              <div class="is-size-5 publication-authors">
-                <!-- Paper authors -->
-                <span class="author-block">
-                  <a href="FIRST AUTHOR PERSONAL LINK" target="_blank"
-                    >Shi Liu</a
-                  >,</span
-                >
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank"
-                    >Kecheng Zheng</a
-                  >,</span
-                >
-                <span class="author-block">
-                  <a href="THIRD AUTHOR PERSONAL LINK" target="_blank"
-                    >Wei Chen</a
-                  >
-                </span>
-              </div>
+  <link rel="stylesheet" href="static/css/bulma.min.css" />
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css" />
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css" />
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+  <link rel="stylesheet" href="static/css/index.css" />
 
-              <div class="is-size-5 publication-authors">
-                <span class="author-block"
-                  >State Key Lab of CAD&CG, Zhejiang University<br />ECCV
-                  2024</span
-                >
-                <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
-              </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              <img width="40px" src="static/images/PAI.webp" alt="logo" />
+              <span class="highlight">P</span>aying More
+              <span class="highlight">A</span>ttention to
+              <span class="highlight">I</span>mage: A Training-Free Method for
+              Alleviating Hallucination in LVLMs
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Shi Liu</a>,</span>
+              <span class="author-block">
+                <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Kecheng Zheng</a>,</span>
+              <span class="author-block">
+                <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Wei Chen</a>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">State Key Lab of CAD&CG, Zhejiang University<br />ECCV
+                2024</span>
+              <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+            </div>
 
               <div class="column has-text-centered">
                 <div class="publication-links">
@@ -114,8 +91,8 @@
                     </a>
                   </span>
 
-                  <!-- Supplementary PDF link -->
-                  <!-- <span class="link-block">
+                <!-- Supplementary PDF link -->
+                <!-- <span class="link-block">
                       <a href="static/pdfs/supplementary_material.pdf" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
@@ -160,286 +137,433 @@
       </div>
     </section>
 
-    <!-- Teaser video-->
-    <section class="hero teaser">
-      <div class="container is-max-desktop">
-        <div class="hero-body">
-          <img src="static/images/teaser_v3.jpg" alt="teaser" />
-          <h2 class="subtitle has-text-centered">
-            We discovered the
-            <span class="soft-highlight">"Text Inertia"</span> phenomenon in
-            LVLMs, which means
-            <span class="soft-highlight"
-              >some hallucinations are caused by text context instead of
-              misinterpretation of image information</span
-            >. We proposed a method called PAI to alleviate this phenomenon.
-          </h2>
+  <!-- Teaser video-->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="static/images/teaser_v3.jpg" alt="teaser" />
+        <h2 class="subtitle has-text-centered">
+          We discovered the
+          <span class="soft-highlight">"Text Inertia"</span> phenomenon in
+          LVLMs, which means
+          <span class="soft-highlight">some hallucinations are caused by text context instead of
+            misinterpretation of image information</span>. We proposed a method called PAI to alleviate this phenomenon.
+        </h2>
+      </div>
+    </div>
+  </section>
+  <!-- End teaser video -->
+
+  <!-- Paper abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Large Vision-Language Models (LVLMs) align image features to the
+              input of Large Language Models (LLMs), enhancing multi-modal
+              reasoning and knowledge utilization capabilities. However, the
+              disparity in scale between models of different modalities has
+              resulted in LLMs assuming a predominant role in multimodal
+              comprehension. This imbalance in model integration can lead to
+              instances of hallucinatory outputs.
+              <span class="soft-highlight">
+                In particular, LVLMs may generate descriptions that persist in
+                the absence of visual input, suggesting that these narratives
+                are disproportionately influenced by the textual context. We
+                refer to this phenomenon as ``text inertia.''
+              </span>
+              To counteract this issue, we introduce
+              <span class="soft-highlight">a training-free algorithm</span>
+              designed to find an equilibrium between image comprehension and
+              language inference. Specifically, we
+              <span class="soft-highlight">involve adjusting and amplifying the attention weights
+                assigned to image tokens</span>, thereby granting greater prominence to visual elements.
+              Meanwhile, we
+              <span class="soft-highlight">the logits of multimodal inputs from the model logits of pure
+                text input</span>, which can let model not biased towards only LLM. By enhancing
+              images tokens and reducing the stubborn output of LLM, we can
+              let LVLM pay more attention to images, towards alleviating text
+              inertia and reducing the hallucination in LVLMs. Our extensive
+              experiments shows that this method substantially reduces the
+              frequency of hallucinatory outputs in various LVLMs in terms of
+              different metrics.
+            </p>
+          </div>
         </div>
       </div>
-    </section>
-    <!-- End teaser video -->
+    </div>
+  </section>
+  <!-- End paper abstract -->
 
-    <!-- Paper abstract -->
-    <section class="section hero is-light">
-      <div class="container is-max-desktop">
+  <!-- Image carousel -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">Method Overview</h2>
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3">Abstract</h2>
-            <div class="content has-text-justified">
-              <p>
-                Large Vision-Language Models (LVLMs) align image features to the
-                input of Large Language Models (LLMs), enhancing multi-modal
-                reasoning and knowledge utilization capabilities. However, the
-                disparity in scale between models of different modalities has
-                resulted in LLMs assuming a predominant role in multimodal
-                comprehension. This imbalance in model integration can lead to
-                instances of hallucinatory outputs.
-                <span class="soft-highlight">
-                  In particular, LVLMs may generate descriptions that persist in
-                  the absence of visual input, suggesting that these narratives
-                  are disproportionately influenced by the textual context. We
-                  refer to this phenomenon as ``text inertia.''
-                </span>
-                To counteract this issue, we introduce
-                <span class="soft-highlight">a training-free algorithm</span>
-                designed to find an equilibrium between image comprehension and
-                language inference. Specifically, we
-                <span class="soft-highlight"
-                  >involve adjusting and amplifying the attention weights
-                  assigned to image tokens</span
-                >, thereby granting greater prominence to visual elements.
-                Meanwhile, we
-                <span class="soft-highlight"
-                  >the logits of multimodal inputs from the model logits of pure
-                  text input</span
-                >, which can let model not biased towards only LLM. By enhancing
-                images tokens and reducing the stubborn output of LLM, we can
-                let LVLM pay more attention to images, towards alleviating text
-                inertia and reducing the hallucination in LVLMs. Our extensive
-                experiments shows that this method substantially reduces the
-                frequency of hallucinatory outputs in various LVLMs in terms of
-                different metrics.
-              </p>
-            </div>
+            <img src="static/images/framework_v2.png" alt="teaser" />
+            <h2 class="subtitle has-text-centered">
+              Our method primarily consists of two components: (1)
+              <span class="soft-highlight">inference intervention</span>:
+              scaling up the attention weights assigned to image tokens, and
+              (2) <span class="soft-highlight">logits refinement</span>:
+              mitigating the influence of pure text context by subtracting
+              pure text logits.
+            </h2>
           </div>
         </div>
       </div>
-    </section>
-    <!-- End paper abstract -->
+    </div>
+  </section>
+  <!-- End image carousel -->
 
-    <!-- Image carousel -->
-    <section class="hero is-small">
-      <div class="hero-body">
-        <div class="container">
-          <h2 class="title is-3">Method Overview</h2>
-          <div class="columns is-centered has-text-centered">
-            <div class="column is-four-fifths">
-              <img src="static/images/framework_v2.png" alt="teaser" />
-              <h2 class="subtitle has-text-centered">
-                Our method primarily consists of two components: (1)
-                <span class="soft-highlight">inference intervention</span>:
-                scaling up the attention weights assigned to image tokens, and
-                (2) <span class="soft-highlight">logits refinement</span>:
-                mitigating the influence of pure text context by subtracting
-                pure text logits.
-              </h2>
-            </div>
+  <!-- Image carousel -->
+  <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">Main Results</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item my-item">
+            <!-- Your image here -->
+            <img src="static/images/CHAIR.png" alt="CHAIR Results" />
+            <h2 class="subtitle has-text-centered">
+              Evaluation Results on CHAIR: which evaluates hallucinations in a
+              long sequence generation paradigm.
+            </h2>
+          </div>
+          <div class="item my-item">
+            <!-- Your image here -->
+            <img src="static/images/POPE.png" alt="POPE Results" />
+            <h2 class="subtitle has-text-centered">
+              Evaluation Results on POPE: which evaluates hallucinations in a
+              VQA paradigm.
+              <span class="soft-highlight">We constructed the evaluation into single-turn and multi-turn
+                categories.</span>
+            </h2>
           </div>
         </div>
       </div>
-    </section>
-    <!-- End image carousel -->
+    </div>
+  </section>
+  <!-- End image carousel -->
 
-    <!-- Image carousel -->
-    <section class="hero is-small is-light">
-      <div class="hero-body">
-        <div class="container">
-          <h2 class="title is-3">Main Results</h2>
-          <div id="results-carousel" class="carousel results-carousel">
-            <div class="item my-item">
-              <!-- Your image here -->
-              <img src="static/images/CHAIR.png" alt="CHAIR Results" />
-              <h2 class="subtitle has-text-centered">
-                Evaluation Results on CHAIR: which evaluates hallucinations in a
-                long sequence generation paradigm.
-              </h2>
+  <!-- Image carousel -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">More Show Cases</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item my-item">
+            <!-- Costom Card -->
+            <div class="my-card">
+              <!-- Left Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">Input Image:</div>
+                <div class="my-card-content"><img src="static/images/llava_qual_1.png" alt="CHAIR Results" /></div>
+                <div class="my-card-header">Instruction:</div>
+                <div class="my-card-content">Please describe the image in detail.</div>
+              </div>
+              <!-- Right Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">LLaVA-1.5(Greedy)</div>
+                <div class="my-card-content">The image features a woman wearing a floral dress, walking through a garden
+                  with a parasol in her hand. She appears to be enjoying her time in the garden, possibly posing for a
+                  picture. <span class="hallucination">A handbag can also be seen in the scene, placed close to the woman, possibly belonging to
+                    her.</span> The overall atmosphere of the image is pleasant and inviting, showcasing the beauty of the
+                  garden. </div>
+                <div class="my-card-header">LLaVA-1.5(PAI)</div>
+                <div class="my-card-content">The image features a smiling woman wearing a floral dress, walking through
+                  a garden. She is holding an umbrella in her hand, and appears to be enjoying her time in the garden.
+                  The woman is walking between two large white pillars, which are part of a garden wall. The scene is
+                  set in a garden, with a potted plant nearby. The woman's smile and the pleasant atmosphere of the
+                  scene suggest a pleasant and relaxing environment. </div>
+              </div>
             </div>
-            <div class="item my-item">
-              <!-- Your image here -->
-              <img src="static/images/POPE.png" alt="POPE Results" />
-              <h2 class="subtitle has-text-centered">
-                Evaluation Results on POPE: which evaluates hallucinations in a
-                VQA paradigm.
-                <span class="soft-highlight"
-                  >We constructed the evaluation into single-turn and multi-turn
-                  categories.</span
-                >
-              </h2>
+            <div class="my-card">
+              <!-- Left Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">Input Image:</div>
+                <div class="my-card-content"><img src="static/images/llava_qual_2.png" alt="CHAIR Results" /></div>
+                <div class="my-card-header">Instruction:</div>
+                <div class="my-card-content">Please describe the image in detail.</div>
+              </div>
+              <!-- Right Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">LLaVA-1.5(Greedy)</div>
+                <div class="my-card-content">The image features a train with graffiti on its side, traveling down the
+                  tracks. The train is positioned on the left side of the image, and the graffiti is visible on the side
+                  of the train, covering a significant portion of the surface. <span class="hallucination">There is a person standing near the
+                    train, possibly observing or waiting for it to stop. The scene also includes a bench located on the
+                    right side of the image, providing a place for people to sit and wait for the train.</span> </div>
+                <div class="my-card-header">LLaVA-1.5(PAI)</div>
+                <div class="my-card-content">The image features a train with graffiti on its side, which is parked at a
+                  train station. The train is blue and white in color, and it is parked on the tracks. The graffiti on
+                  the train is quite elaborate, covering a significant portion of the train's side. The train is parked
+                  on the tracks, and it appears to be a passenger train, as it is not a freight train. The train is
+                  parked at a station, and it is likely waiting for passengers to board. The graffiti on the train adds
+                  a unique and artistic touch to the otherwise ordinary scene. </div>
+              </div>
             </div>
+            <div class="my-card">
+              <!-- Left Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">Input Image:</div>
+                <div class="my-card-content"><img src="static/images/llava_qual_3.png" alt="CHAIR Results" /></div>
+                <div class="my-card-header">Instruction:</div>
+                <div class="my-card-content">Please describe the image in detail.</div>
+              </div>
+              <!-- Right Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">LLaVA-1.5(Greedy)</div>
+                <div class="my-card-content">The image depicts a snowy hillside <span class="hallucination">with a herd of sheep grazing on the
+                  grass.</span> There are at least 14 sheep scattered across the field, with some closer to the foreground and
+                  others further away. The sheep are of various sizes, indicating a mix of adult and younger animals.
+                  The scene captures the beauty of the snow-covered landscape and the peacefulness of the animals as
+                  they graze in the wintery environment. </div>
+                <div class="my-card-header">LLaVA-1.5(PAI)</div>
+                <div class="my-card-content">The image features a large herd of sheep standing in a snowy field. There
+                  are at least 14 sheep in the scene, with some of them standing close to each other, while others are
+                  spread out across the field. The sheep are standing in the snow, and the scene appears to be a
+                  peaceful, snowy landscape. The image captures the beauty of the winter landscape and the calmness of
+                  the sheep in their natural environment. </div>
+              </div>
+            </div>
+            <div class="my-card">
+              <!-- Left Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">Input Image:</div>
+                <div class="my-card-content"><img src="static/images/llava_qual_4.png" alt="CHAIR Results" /></div>
+                <div class="my-card-header">Instruction:</div>
+                <div class="my-card-content">Please describe the image in detail.</div>
+              </div>
+              <!-- Right Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">LLaVA-1.5(Greedy)</div>
+                <div class="my-card-content">The image features a wooden bench situated in a serene garden setting. The
+                  bench is positioned near a tree, providing a shaded and relaxing spot for visitors. The garden is
+                  adorned with several potted plants, creating a lush and green atmosphere. <span class="hallucination">In addition to the bench,
+                    there are two people in the scene, one standing near the left side of the bench and the other closer
+                    to the right side.</span> The presence of these individuals adds a sense of life and activity to the
+                  otherwise peaceful garden setting. </div>
+                <div class="my-card-header">LLaVA-1.5(PAI)</div>
+                <div class="my-card-content">The image features a wooden park bench situated in a park-like setting,
+                  surrounded by a variety of trees and plants. The bench is located in the middle of the scene, with a
+                  few trees and bushes in the background. The bench is surrounded by a few bushes and trees, creating a
+                  serene and peaceful atmosphere. The bench is situated in the middle of the scene, with a few trees and
+                  bushes in the background. The bench is made of wood and is placed on a gravel surface, adding to the
+                  overall charm of the scene. </div>
+              </div>
+            </div>
+            <h2 class="subtitle has-text-centered">
+              PAI's performance on reducing hallucinations of LLaVA-1.5-7B.
+            </h2>
           </div>
-        </div>
-      </div>
-    </section>
-    <!-- End image carousel -->
+          <div class="item">
+            <!-- Costom Card -->
+            <div class="my-card">
+              <!-- Left Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">Input Image:</div>
+                <div class="my-card-content"><img src="static/images/minigpt4_qual_1.png" alt="CHAIR Results" /></div>
+                <div class="my-card-header">Instruction:</div>
+                <div class="my-card-content">Please describe the image in detail.</div>
+              </div>
+              <!-- Right Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">Minigpt4(Greedy)</div>
+                <div class="my-card-content">This image shows a busy street with cars parked on both sides of the road.
+                  The buildings on either side of the street are tall and white, with large billboards on the sides. The
+                  sky is cloudy and dark, with a few dark clouds visible in the distance. <span class="hallucination">The street is lined with trees
+                    and streetlights.</span></div>
+                <div class="my-card-header">Minigpt4(PAI)</div>
+                <div class="my-card-content">This image shows a busy city street with cars parked on the side of the
+                  road. The building in the background is a tall white building with a large billboard on the side. The
+                  billboard has a blue and white design on it. There are also several motorcycles parked on the side of
+                  the road.
+                </div>
+              </div>
+            </div>
+            <div class="my-card">
+              <!-- Left Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">Input Image:</div>
+                <div class="my-card-content"><img src="static/images/minigpt4_qual_2.png" alt="CHAIR Results" /></div>
+                <div class="my-card-header">Instruction:</div>
+                <div class="my-card-content">Please describe the image in detail.</div>
+              </div>
+              <!-- Right Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">Minigpt4(Greedy)</div>
+                <div class="my-card-content">This image shows a pizza with various toppings, including peppers, onions,
+                  and mushrooms, on a piece of parchment paper. The pizza appears to be cut into slices, with some
+                  slices missing. There is a knife <span class="hallucination">and fork next to the pizza, and a bottle of tomato sauce on the table
+                    in the background.</span> </div>
+                <div class="my-card-header">Minigpt4(PAI)</div>
+                <div class="my-card-content">This image shows a pizza that has been cut into slices and is sitting on a
+                  piece of parchment paper. The pizza has a variety of toppings, including peppers, onions, and
+                  mushrooms, and is covered in a thick layer of cheese. A knife is visible in the foreground, next to
+                  the pizza.
+                </div>
+              </div>
+            </div>
+            <div class="my-card">
+              <!-- Left Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">Input Image:</div>
+                <div class="my-card-content"><img src="static/images/minigpt4_qual_3.png" alt="CHAIR Results" /></div>
+                <div class="my-card-header">Instruction:</div>
+                <div class="my-card-content">Please describe the image in detail.</div>
+              </div>
+              <!-- Right Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">Minigpt4(Greedy)</div>
+                <div class="my-card-content">The image shows a motorcycle parked in a field next to a tent. The tent is
+                  set up on a wooden platform and has a green tarp covering it. The motorcycle is parked on the grass
+                  and <span class="hallucination">has a helmet on the handlebars.</span> There are trees in the background and the sun is setting behind
+                  them. <span class="hallucination">The sky is orange and pink,</span> and there are clouds in the sky.
+                </div>
+                <div class="my-card-header">Minigpt4(PAI)</div>
+                <div class="my-card-content">This image shows a motorcycle parked in a field next to a tent. The tent is
+                  set up on a wooden platform and has a green tarp covering it. There are trees in the background and
+                  the sun is setting behind them. The motorcycle is parked on the ground next to the tent, and there are
+                  no other objects in the image.
+                </div>
+              </div>
+            </div>
+            <div class="my-card">
+              <!-- Left Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">Input Image:</div>
+                <div class="my-card-content"><img src="static/images/minigpt4_qual_4.png" alt="CHAIR Results" /></div>
+                <div class="my-card-header">Instruction:</div>
+                <div class="my-card-content">Please describe the image in detail.</div>
+              </div>
+              <!-- Right Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">Minigpt4(Greedy)</div>
+                <div class="my-card-content">This image shows a stop sign on the side of a road, next to a brick wall.
+                  The stop sign has a red background with white letters that read "stop." There is a gate in the wall,
+                  with a black iron fence <span class="hallucination">and a wooden door.</span> The gate is closed, and there are no people or cars in the
+                  image. The trees on the other side of the road are in full bloom, <span class="hallucination">with pink flowers covering the
+                    branches. The sky is clear and blue, with a few clouds in the distance.</span>
+                </div>
+                <div class="my-card-header">Minigpt4(PAI)</div>
+                <div class="my-card-content">This image shows a stop sign on the side of a road, with a gate in the
+                  background. The stop sign has a red background with white letters that read "stop." The gate in the
+                  background is made of metal and has a black finish. There are some leaves on the ground next to the
+                  stop sign, and there are trees in the background.
+                </div>
+              </div>
+            </div>
+            <h2 class="subtitle has-text-centered">
+              PAI's performance on reducing hallucinations of Minigpt4.
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Costom Card -->
+            <div class="my-card">
+              <!-- Left Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">Input Image:</div>
+                <div class="my-card-content"><img src="static/images/shikra_qual_1.png" alt="CHAIR Results" /></div>
+                <div class="my-card-header">Instruction:</div>
+                <div class="my-card-content">Please describe the image in detail.</div>
+              </div>
+              <!-- Right Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">Shikra(Greedy)</div>
+                <div class="my-card-content">The image features a green and yellow train traveling down the tracks,
+                  passing by a station. The train appears to be a trolley-type train that is either leaving the station
+                  or pulling into it. <span class="hallucination">There are several people around the train and the station, possibly waiting for
+                    the train or just going about their day.</span><br>
+                  <span class="hallucination">In addition to the train and people, there are a few traffic lights scattered around the scene. One
+                    traffic light is located near the top right corner, another one is positioned further to the right,
+                    and the third traffic light is on the left side of the image. The presence of these traffic lights
+                    suggests that the train is operating in an urban environment with well-organized transportation
+                    infrastructure.</span>
+                </div>
+                <div class="my-card-header">Shikra(PAI)</div>
+                <div class="my-card-content">The image depicts a green and yellow train traveling down the train tracks,
+                  passing through a small town. The train is moving along the tracks that are situated above a grassy
+                  field. The scene also features a tree-lined sidewalk adjacent to the train tracks.<br>
+                  In the background, there are some pink flowers in bloom, adding a touch of color to the scene. The
+                  train tracks can be seen extending across the image, with the train positioned in the middle of the
+                  frame. The train appears to be a local commuter train, possibly heading towards a city or town.
+                </div>
+              </div>
+            </div>
+            <div class="my-card">
+              <!-- Left Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">Input Image:</div>
+                <div class="my-card-content"><img src="static/images/shikra_qual_2.png" alt="CHAIR Results" /></div>
+                <div class="my-card-header">Instruction:</div>
+                <div class="my-card-content">Please describe the image in detail.</div>
+              </div>
+              <!-- Right Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">Shikra(Greedy)</div>
+                <div class="my-card-content">The image features a large elephant standing on a lush green field, eating
+                  grass using its trunk. The elephant is positioned in the center of the scene, and it appears to be
+                  enjoying a meal.
+                  <br>
+                  <span class="hallucination">In the background, there are several chairs scattered around the field, possibly for people to sit and
+                    observe the elephant. Additionally, there are two people in the scene, one near the left edge of the
+                    image and another closer to the center, both of them likely watching the elephant as it feeds.</span>
+                </div>
+                <div class="my-card-header">Shikra(PAI)</div>
+                <div class="my-card-content">The image features a large elephant standing on a dirt field, eating a
+                  mouthful of green grass. The elephant is enjoying a meal consisting mainly of grass, as it is eating
+                  the grass in its mouth. The elephant is standing under a bamboo hut, which provides shade and
+                  shelter.\n\nThe image shows a large elephant standing in a field, eating grass by placing it in its
+                  mouth using its trunk. The scene captures the unique moment of the elephant enjoying its meal.
 
-    <!-- Image carousel -->
-    <section class="hero is-small">
-      <div class="hero-body">
-        <div class="container">
-          <h2 class="title is-3">More Show Cases</h2>
-          <div id="results-carousel" class="carousel results-carousel">
-            <div class="item">
-              <!-- Costom Card -->
-               <div class="my-card">
-                <!-- Left Body -->
-                  <div class="my-card-body">
-                    <div class="my-card-header">Input Image:</div>
-                    <div class="my-card-content"><img src="static/images/llava_qual_1.png" alt="CHAIR Results" /></div>
-                    <div class="my-card-header">Instruction:</div>
-                    <div class="my-card-content">Please describe the image in detail.</div>
-                  </div>
-                  <!-- Right Body -->
-                  <div class="my-card-body">
-                    <div class="my-card-header">LLaVA-1.5(Greedy)</div>
-                    <div class="my-card-content">The image features a woman wearing a floral dress, walking through a garden with a parasol in her hand. She appears to be enjoying her time in the garden, possibly posing for a picture. A handbag can also be seen in the scene, placed close to the woman, possibly belonging to her. The overall atmosphere of the image is pleasant and inviting, showcasing the beauty of the garden. </div>
-                    <div class="my-card-header">LLaVA-1.5(PAI)</div>
-                    <div class="my-card-content">The image features a smiling woman wearing a floral dress, walking through a garden. She is holding an umbrella in her hand, and appears to be enjoying her time in the garden. The woman is walking between two large white pillars, which are part of a garden wall. The scene is set in a garden, with a potted plant nearby. The woman's smile and the pleasant atmosphere of the scene suggest a pleasant and relaxing environment. </div>
-                  </div>
-               </div>
-               <div class="my-card">
-                <!-- Left Body -->
-                  <div class="my-card-body">
-                    <div class="my-card-header">Input Image:</div>
-                    <div class="my-card-content"><img src="static/images/llava_qual_2.png" alt="CHAIR Results" /></div>
-                    <div class="my-card-header">Instruction:</div>
-                    <div class="my-card-content">Please describe the image in detail.</div>
-                  </div>
-                  <!-- Right Body -->
-                  <div class="my-card-body">
-                    <div class="my-card-header">LLaVA-1.5(Greedy)</div>
-                    <div class="my-card-content">The image features a train with graffiti on its side, traveling down the tracks. The train is positioned on the left side of the image, and the graffiti is visible on the side of the train, covering a significant portion of the surface. There is a person standing near the train, possibly observing or waiting for it to stop. The scene also includes a bench located on the right side of the image, providing a place for people to sit and wait for the train. </div>
-                    <div class="my-card-header">LLaVA-1.5(PAI)</div>
-                    <div class="my-card-content">The image features a train with graffiti on its side, which is parked at a train station. The train is blue and white in color, and it is parked on the tracks. The graffiti on the train is quite elaborate, covering a significant portion of the train's side. The train is parked on the tracks, and it appears to be a passenger train, as it is not a freight train. The train is parked at a station, and it is likely waiting for passengers to board. The graffiti on the train adds a unique and artistic touch to the otherwise ordinary scene. </div>
-                  </div>
-               </div>
-               <div class="my-card">
-                <!-- Left Body -->
-                  <div class="my-card-body">
-                    <div class="my-card-header">Input Image:</div>
-                    <div class="my-card-content"><img src="static/images/llava_qual_3.png" alt="CHAIR Results" /></div>
-                    <div class="my-card-header">Instruction:</div>
-                    <div class="my-card-content">Please describe the image in detail.</div>
-                  </div>
-                  <!-- Right Body -->
-                  <div class="my-card-body">
-                    <div class="my-card-header">LLaVA-1.5(Greedy)</div>
-                    <div class="my-card-content">The image depicts a snowy hillside with a herd of sheep grazing on the grass. There are at least 14 sheep scattered across the field, with some closer to the foreground and others further away. The sheep are of various sizes, indicating a mix of adult and younger animals. The scene captures the beauty of the snow-covered landscape and the peacefulness of the animals as they graze in the wintery environment. </div>
-                    <div class="my-card-header">LLaVA-1.5(PAI)</div>
-                    <div class="my-card-content">The image features a large herd of sheep standing in a snowy field. There are at least 14 sheep in the scene, with some of them standing close to each other, while others are spread out across the field. The sheep are standing in the snow, and the scene appears to be a peaceful, snowy landscape. The image captures the beauty of the winter landscape and the calmness of the sheep in their natural environment. </div>
-                  </div>
-               </div>
-               <div class="my-card">
-                <!-- Left Body -->
-                  <div class="my-card-body">
-                    <div class="my-card-header">Input Image:</div>
-                    <div class="my-card-content"><img src="static/images/llava_qual_4.png" alt="CHAIR Results" /></div>
-                    <div class="my-card-header">Instruction:</div>
-                    <div class="my-card-content">Please describe the image in detail.</div>
-                  </div>
-                  <!-- Right Body -->
-                  <div class="my-card-body">
-                    <div class="my-card-header">LLaVA-1.5(Greedy)</div>
-                    <div class="my-card-content">The image features a wooden bench situated in a serene garden setting. The bench is positioned near a tree, providing a shaded and relaxing spot for visitors. The garden is adorned with several potted plants, creating a lush and green atmosphere. In addition to the bench, there are two people in the scene, one standing near the left side of the bench and the other closer to the right side. The presence of these individuals adds a sense of life and activity to the otherwise peaceful garden setting. </div>
-                    <div class="my-card-header">LLaVA-1.5(PAI)</div>
-                    <div class="my-card-content">The image features a wooden park bench situated in a park-like setting, surrounded by a variety of trees and plants. The bench is located in the middle of the scene, with a few trees and bushes in the background. The bench is surrounded by a few bushes and trees, creating a serene and peaceful atmosphere. The bench is situated in the middle of the scene, with a few trees and bushes in the background. The bench is made of wood and is placed on a gravel surface, adding to the overall charm of the scene. </div>
-                  </div>
-               </div>
-              <h2 class="subtitle has-text-centered">
-                PAI's performance on reducing hallucinations of LLaVA-1.5-7B.
-              </h2>
+                </div>
+              </div>
             </div>
-            <div class="item">
-              <!-- Costom Card -->
-              <div class="my-card">
-                <!-- Left Body -->
-                  <div class="my-card-body">
-                    <div class="my-card-header">Input Image:</div>
-                    <div class="my-card-content"><img src="static/images/llava_qual_1.png" alt="CHAIR Results" /></div>
-                    <div class="my-card-header">Instruction:</div>
-                    <div class="my-card-content">Please describe the image in detail.</div>
-                  </div>
-                  <!-- Right Body -->
-                  <div class="my-card-body">
-                    <div class="my-card-header">Minigpt4(Greedy)</div>
-                    <div class="my-card-content">The image features a woman wearing a floral dress, walking through a garden with a parasol in her hand. She appears to be enjoying her time in the garden, possibly posing for a picture. A handbag can also be seen in the scene, placed close to the woman, possibly belonging to her. The overall atmosphere of the image is pleasant and inviting, showcasing the beauty of the garden. </div>
-                    <div class="my-card-header">Minigpt4(PAI)</div>
-                    <div class="my-card-content">The image features a smiling woman wearing a floral dress, walking through a garden. She is holding an umbrella in her hand, and appears to be enjoying her time in the garden. The woman is walking between two large white pillars, which are part of a garden wall. The scene is set in a garden, with a potted plant nearby. The woman's smile and the pleasant atmosphere of the scene suggest a pleasant and relaxing environment. </div>
-                  </div>
-               </div>
-               <div class="my-card">
-                <!-- Left Body -->
-                  <div class="my-card-body">
-                    <div class="my-card-header">Input Image:</div>
-                    <div class="my-card-content"><img src="static/images/llava_qual_2.png" alt="CHAIR Results" /></div>
-                    <div class="my-card-header">Instruction:</div>
-                    <div class="my-card-content">Please describe the image in detail.</div>
-                  </div>
-                  <!-- Right Body -->
-                  <div class="my-card-body">
-                    <div class="my-card-header">Minigpt4(Greedy)</div>
-                    <div class="my-card-content">The image features a train with graffiti on its side, traveling down the tracks. The train is positioned on the left side of the image, and the graffiti is visible on the side of the train, covering a significant portion of the surface. There is a person standing near the train, possibly observing or waiting for it to stop. The scene also includes a bench located on the right side of the image, providing a place for people to sit and wait for the train. </div>
-                    <div class="my-card-header">Minigpt4(PAI)</div>
-                    <div class="my-card-content">The image features a train with graffiti on its side, which is parked at a train station. The train is blue and white in color, and it is parked on the tracks. The graffiti on the train is quite elaborate, covering a significant portion of the train's side. The train is parked on the tracks, and it appears to be a passenger train, as it is not a freight train. The train is parked at a station, and it is likely waiting for passengers to board. The graffiti on the train adds a unique and artistic touch to the otherwise ordinary scene. </div>
-                  </div>
-               </div>
-               <div class="my-card">
-                <!-- Left Body -->
-                  <div class="my-card-body">
-                    <div class="my-card-header">Input Image:</div>
-                    <div class="my-card-content"><img src="static/images/llava_qual_3.png" alt="CHAIR Results" /></div>
-                    <div class="my-card-header">Instruction:</div>
-                    <div class="my-card-content">Please describe the image in detail.</div>
-                  </div>
-                  <!-- Right Body -->
-                  <div class="my-card-body">
-                    <div class="my-card-header">Minigpt4(Greedy)</div>
-                    <div class="my-card-content">The image depicts a snowy hillside with a herd of sheep grazing on the grass. There are at least 14 sheep scattered across the field, with some closer to the foreground and others further away. The sheep are of various sizes, indicating a mix of adult and younger animals. The scene captures the beauty of the snow-covered landscape and the peacefulness of the animals as they graze in the wintery environment. </div>
-                    <div class="my-card-header">Minigpt4(PAI)</div>
-                    <div class="my-card-content">The image features a large herd of sheep standing in a snowy field. There are at least 14 sheep in the scene, with some of them standing close to each other, while others are spread out across the field. The sheep are standing in the snow, and the scene appears to be a peaceful, snowy landscape. The image captures the beauty of the winter landscape and the calmness of the sheep in their natural environment. </div>
-                  </div>
-               </div>
-               <div class="my-card">
-                <!-- Left Body -->
-                  <div class="my-card-body">
-                    <div class="my-card-header">Input Image:</div>
-                    <div class="my-card-content"><img src="static/images/llava_qual_4.png" alt="CHAIR Results" /></div>
-                    <div class="my-card-header">Instruction:</div>
-                    <div class="my-card-content">Please describe the image in detail.</div>
-                  </div>
-                  <!-- Right Body -->
-                  <div class="my-card-body">
-                    <div class="my-card-header">Minigpt4(Greedy)</div>
-                    <div class="my-card-content">The image features a wooden bench situated in a serene garden setting. The bench is positioned near a tree, providing a shaded and relaxing spot for visitors. The garden is adorned with several potted plants, creating a lush and green atmosphere. In addition to the bench, there are two people in the scene, one standing near the left side of the bench and the other closer to the right side. The presence of these individuals adds a sense of life and activity to the otherwise peaceful garden setting. </div>
-                    <div class="my-card-header">Minigpt4(PAI)</div>
-                    <div class="my-card-content">The image features a wooden park bench situated in a park-like setting, surrounded by a variety of trees and plants. The bench is located in the middle of the scene, with a few trees and bushes in the background. The bench is surrounded by a few bushes and trees, creating a serene and peaceful atmosphere. The bench is situated in the middle of the scene, with a few trees and bushes in the background. The bench is made of wood and is placed on a gravel surface, adding to the overall charm of the scene. </div>
-                  </div>
-               </div>
-              <h2 class="subtitle has-text-centered">
-                PAI's performance on reducing hallucinations of Minigpt4.
-              </h2>
+            <div class="my-card">
+              <!-- Left Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">Input Image:</div>
+                <div class="my-card-content"><img src="static/images/shikra_qual_3.png" alt="CHAIR Results" /></div>
+                <div class="my-card-header">Instruction:</div>
+                <div class="my-card-content">Please describe the image in detail.</div>
+              </div>
+              <!-- Right Body -->
+              <div class="my-card-body">
+                <div class="my-card-header">Shikra(Greedy)</div>
+                <div class="my-card-content">The image features a small boat sailing across a large body of water,
+                  likely an ocean or a sea, under a cloudy sky. The boat is speeding through the water, cutting through
+                  the waves and creating a wake behind it.
+                  <br>
+                  <span class="hallucination">There are a few people on the boat, with one person visible on the left side and two other people on
+                    the right side of the boat. They seem to be enjoying their time on the water, possibly engaged in
+                    recreational activities or sightseeing.</span>
+                </div>
+                <div class="my-card-header">Shikra(PAI)</div>
+                <div class="my-card-content">The image features a small red boat, resembling a red and white ship,
+                  speeding across the water with a large body of waves around it. The boat is moving quickly through the
+                  water, creating a wake in the ocean. The scene captures the excitement of an adventurous boat ride on
+                  the open ocean, providing a thrilling experience for those on board.
+
+                </div>
+              </div>
             </div>
-            <div class="item">
-              <!-- Your image here -->
-              <img src="static/images/shikra_qual_case.png" alt="POPE Results" />
-              <h2 class="subtitle has-text-centered">
-                PAI's performance on reducing hallucinations of Shikra.
-              </h2>
-            </div>
+            <h2 class="subtitle has-text-centered">
+              PAI's performance on reducing hallucinations of Shikra.
+            </h2>
           </div>
+          
         </div>
       </div>
-    </section>
-    <!-- End image carousel -->
+    </div>
+    </div>
+  </section>
+  <!-- End image carousel -->
 
     <!--BibTex citation -->
     <section class="section" id="BibTeX">
@@ -458,43 +582,34 @@
     </section>
     <!--End BibTex citation -->
 
-    <footer class="footer">
-      <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-8">
-            <div class="content">
-              <p>
-                This page was built using the
-                <a
-                  href="https://github.com/eliahuhorwitz/Academic-project-page-template"
-                  target="_blank"
-                  >Academic Project Page Template</a
-                >
-                which was adopted from the <a
-                  href="https://nerfies.github.io"
-                  target="_blank"
-                  >Nerfies</a
-                > project page. You are free to borrow the of this website, we
-                just ask that you link back to this page in the footer. <br />
-                This website is licensed under a
-                <a
-                  rel="license"
-                  href="http://creativecommons.org/licenses/by-sa/4.0/"
-                  target="_blank"
-                  >Creative Commons Attribution-ShareAlike 4.0 International
-                  License</a
-                >.
-              </p>
-            </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the
+              <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project
+                Page Template</a>
+              which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the of this website, we
+              just ask that you link back to this page in the footer. <br />
+              This website is licensed under a
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons
+                Attribution-ShareAlike 4.0 International
+                License</a>.
+            </p>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-    <!-- Statcounter tracking code -->
+  <!-- Statcounter tracking code -->
 
-    <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
-    <!-- End of Statcounter Code -->
-  </body>
+  <!-- End of Statcounter Code -->
+</body>
+
 </html>
