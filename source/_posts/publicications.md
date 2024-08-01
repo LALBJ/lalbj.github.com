@@ -16,8 +16,9 @@ academia: true
       <p id="authors">Shi Liu, Kecheng Zheng, Wei Chen </p>  
       <p id="acceptance-status">Arxiv Preprint, 2024</p>  
       <p id="paper-links">
-      <a id="pdf-link" href="/">PDF</a>  
-      <!-- <a id="code-link" href="代码链接">代码链接</a>   -->
+      <a id="pdf-link" href="https://arxiv.org/abs/2407.21771">Arxiv</a>  
+      <a id="code-link" href="https://github.com/LALBJ/PAI">Code</a>  
+      <a id="project-link" href="https://lalbj.github.io/projects/PAI">Project Page</a>  
       </p>
     </td>  
   </tr>  
