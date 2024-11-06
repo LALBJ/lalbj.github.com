@@ -14,7 +14,7 @@ academia: true
     <td id="text-cell">  
       <p id="title"><strong>Paying More Attention to Image: A Training-Free Method for Alleviating Hallucination in LVLMs</strong></p>  
       <p id="authors">Shi Liu, Kecheng Zheng, Wei Chen </p>  
-      <p id="acceptance-status">Arxiv Preprint, 2024</p>  
+      <p id="acceptance-status">ECCV, 2024</p>  
       <p id="paper-links">
       <a id="pdf-link" href="https://arxiv.org/abs/2407.21771">Arxiv</a>  
       <a id="code-link" href="https://github.com/LALBJ/PAI">Code</a>  
