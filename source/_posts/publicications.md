@@ -10,13 +10,31 @@ academia: true
 
 <table style="width: 100%;">  
   <tr>  
+    <td id="image-cell"><img id="pub-image" src="/img/comemo.png" alt="PAI" /></td>  
+    <td id="text-cell">  
+      <p id="title"><strong>CoMemo: LVLMs need image context with image memory</strong></p>  
+      <p id="authors">Shi Liu, Weijie Su, Xizhou Zhu, Wenhai Wang, Jifeng Dai </p>  
+      <p id="acceptance-status">Under Review</p>  
+      <p id="paper-links">
+      <!-- <a id="pdf-link" href="https://arxiv.org/abs/2407.21771">Paper</a>  
+      <a id="code-link" href="https://github.com/LALBJ/PAI">Code</a>  
+      <a id="project-link" href="https://lalbj.github.io/projects/PAI">Project Page</a>   -->
+      </p>
+    </td>  
+  </tr>  
+</table>  
+
+<hr style="border: none; border-top: 1px solid lightgray;">  
+
+<table style="width: 100%;">  
+  <tr>  
     <td id="image-cell"><img id="pub-image" src="/img/PAI.png" alt="PAI" /></td>  
     <td id="text-cell">  
       <p id="title"><strong>Paying More Attention to Image: A Training-Free Method for Alleviating Hallucination in LVLMs</strong></p>  
       <p id="authors">Shi Liu, Kecheng Zheng, Wei Chen </p>  
       <p id="acceptance-status">ECCV, 2024</p>  
       <p id="paper-links">
-      <a id="pdf-link" href="https://arxiv.org/abs/2407.21771">Arxiv</a>  
+      <a id="pdf-link" href="https://arxiv.org/abs/2407.21771">Paper</a>  
       <a id="code-link" href="https://github.com/LALBJ/PAI">Code</a>  
       <a id="project-link" href="https://lalbj.github.io/projects/PAI">Project Page</a>  
       </p>
@@ -32,6 +50,7 @@ academia: true
     <td id="text-cell">  
       <p id="title"><strong>Conceptual Augmentation: Advancing Model Interpretability Through Language-Model Integration and Concept-Wise Explicability</strong></p>  
       <p id="authors">Shi Liu, Lechao Cheng, Wei Chen</p>  
+      <p id="acceptance-status">Under Review</p> 
       <!-- <p id="acceptance-status">European Conference on Computer Vision (ECCV), 2024</p>  
       <p id="paper-links">
       <a id="pdf-link" href="/">PDF</a>   -->
@@ -48,8 +67,8 @@ academia: true
     <td id="image-cell"><img id="pub-image" src="/img/gptdetect.png" alt="GPTDetect" /></td>  
     <td id="text-cell">  
       <p id="title"><strong>Towards an Understanding and Explanation for Mixed-Initiative Artificial Scientific Text Detection</strong></p>  
-      <p id="authors">Luoxuan Weng, Minfeng Zhu, Kam Kwai Wong, <strong>Shi Liu,</strong> Jiashun Sun, Hang Zhu, Dongming Han, Wei Chen</p>  
-      <p id="acceptance-status">Arxiv Preprint, 2023</p>  
+      <p id="authors">Luoxuan Weng, <strong>Shi Liu,</strong> Hang Zhu, Jiashun Sun, Wong Kam-Kwai, Dongming Han, Minfeng Zhu, Wei Chen</p>  
+      <p id="acceptance-status">Information Visualization, 2024</p>  
       <p id="paper-links">
       <a id="pdf-link" href="https://arxiv.org/pdf/2304.05011">PDF</a>  
       <!-- <a id="code-link" href="代码链接">代码链接</a>   -->
