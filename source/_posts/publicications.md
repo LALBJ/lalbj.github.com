@@ -14,8 +14,9 @@ academia: true
     <td id="text-cell">  
       <p id="title"><strong>CoMemo: LVLMs need image context with image memory</strong></p>  
       <p id="authors">Shi Liu, Weijie Su, Xizhou Zhu, Wenhai Wang, Jifeng Dai </p>  
-      <p id="acceptance-status">Under Review</p>  
-      <p id="paper-links">
+      <p id="acceptance-status">ICML 2025</p>  
+      <!-- <p id="paper-links"> -->
+      <a id="pdf-link" href="#">Paper and Code Will Coming Soon!</a> 
       <!-- <a id="pdf-link" href="https://arxiv.org/abs/2407.21771">Paper</a>  
       <a id="code-link" href="https://github.com/LALBJ/PAI">Code</a>  
       <a id="project-link" href="https://lalbj.github.io/projects/PAI">Project Page</a>   -->
