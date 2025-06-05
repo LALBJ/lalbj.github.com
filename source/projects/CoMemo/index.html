@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG" />
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG" />
+  <meta property="og:url" content="URL OF THE WEBSITE" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG" />
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>
+    CoMemo: LVLMs Need Image Context with Image Memory
+  </title>
+  <link rel="icon" type="image/x-icon" href="static/images/comemo_logo.png" />
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
+
+  <link rel="stylesheet" href="static/css/bulma.min.css" />
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css" />
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css" />
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+  <link rel="stylesheet" href="static/css/index.css" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              CoMemo: LVLMs Need <br> Image 
+              <span class="highlight">Co</span>ntext with Image 
+              <span class="highlight">Memo</span>ry
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://lalbj.github.io/" target="_blank">Shi Liu<sup>*</sup> <sup>1</sup></a>,</span>
+              <span class="author-block">
+                <a href="https://www.weijiesu.com/" target="_blank">Weijie Su<sup><i class="far fa-envelope"></i></sup> <sup>*</sup> <sup>1</sup></a>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=02RXI00AAAAJ&hl=en" target="_blank">Xizhou Zhu <sup>2,</sup><sup>1</sup></a>
+              </span>
+              <span class="author-block">
+                <a href="https://whai362.github.io/" target="_blank">Wenhai Wang <sup>3,</sup><sup>1</sup></a>
+              </span>
+              <span class="author-block">
+                <a href="https://jifengdai.org/" target="_blank">Jifeng Dai <sup>2,</sup><sup>1</sup></a>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <sup>1</sup>Shanghai Artificial Intelligence Laboratory,
+                <sup>2</sup>Tsinghua University,
+                <sup>3</sup>The Chinese University of Hong Kong<br/>
+                ICML 2025
+              </span>
+              <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+            </div>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- Arxiv PDF link -->
+                  <span class="link-block">
+                    <a
+                      href="#"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
+
+                <!-- Supplementary PDF link -->
+                <!-- <span class="link-block">
+                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span> -->
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a
+                      href="#"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code (Coming Soon)</span>
+                    </a>
+                  </span>
+
+                  <!-- Huggingface link -->
+                  <span class="link-block">
+                    <a
+                      href="#"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <img src="static/images/hug.png" style="width: 1em; height: 1em; vertical-align: middle;margin-right: 8px;"/>
+                      <span>Model (Coming Soon)</span>
+                    </a>
+                  </span>
+
+                  <!-- ArXiv abstract Link -->
+                  <span class="link-block">
+                    <a
+                      href="#"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- Teaser video-->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <!-- 图片容器（Flexbox 布局） -->
+        <div class="image-row" style="display: flex; justify-content: center; gap: 10px; margin: 20px 0;">
+          <img src="static/images/eval_radar.png" alt="teaser" style="max-width: 30%; height: auto;" />
+          <img src="static/images/teaser.png" alt="teaser" style="max-width: 70%; height: auto;" />
+        </div>
+      
+        <h2 class="subtitle has-text-centered" style="font-size: 1rem;">
+          <span style="font-weight: bold;">Left:</span> Evaluation results of three architectures with <span class="soft-highlight">same training data and model size</span> (2B).<br>
+          <span style="font-weight: bold;">Right:</span> Comparison three types of architectures for LVLMs. 
+          <span style="font-weight: bold;">Method (a)</span> use image encoder to align visual features with the LLM's continuous token representation space. 
+          <span style="font-weight: bold;">Method (b)</span> employs mixin layer with cross-attention to update LLM's hidden states based on visual features. 
+          And <span style="font-weight: bold;">Method (c)</span> contrust a dual-path structure to enable the model to focus more on visual content during generation.
+        </h2>
+      </div>
+      <div class="hero-body">
+      <h2 class="subtitle has-text-centered" >
+      Large Vision Language Models have achieved significant breakthroughs, with the dominant approach being the alignment of visual representations to the text representation space of Large Language Models for generation using the LLM decoder. 
+      However, certain design choices inherited from LMs are suboptimal for multimodal long-context and long-generation tasks. 
+      To address this, we introduce CoMemo, a novel architecture featuring <span class="soft-highlight">a dual-path visual attention mechanism</span> and 
+      RoPE-DHR, which <span class="soft-highlight">retains two dimensional image information in positional encoding and mitigates the issue of remote decay in positional encoding</span>.
+    </h2>
+  </div>
+    </div>
+  </section>
+  <!-- End teaser video -->
+
+  <!-- Paper abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+          <h2 class="title is-3">Design Thinking for CoMemo</h2>
+          <div class="content has-text-justified">
+            <div class="hero-body">
+              <h3>1. Why LVLMs Tend to “lose in the middle”?</h3>
+              <p>"Lost in the middle" describes the issue where LVLMs lose critical information from the middle of the context as its length increases. 
+                Our findings indicate that this phenomenon is associated with the gradient and attention allocation strategies employed during model training.</p>
+              <div class="image-row" style="display: flex; justify-content: center; gap: 10px; margin: 20px 0;">
+                <img src="static/images/lvlms_needle.png" alt="teaser" style="max-width: 35%; height: auto;" />
+                <img src="static/images/grad_avg.png" alt="teaser" style="max-width: 65%; height: auto;" />
+              </div>
+              <h2 class="subtitle has-text-centered" style="font-size: 1rem;">
+                <span style="font-weight: bold;">Left:</span> Heatmap of results for the NIAH evaluation on
+                MileBench benchmark. The depth percentage indicates the
+                position of the target information (needle) relative to the
+                entire sequence.<br>
+                <span style="font-weight: bold;">Right:</span> Average gradients and attention weights assigned
+                to tokens at corresponding positions. We computed the
+                average over 1,000 samples.
+              </h2>
+  
+              <h3>2. Remote Decay in LVLMs with DHR</h3>
+              <p>
+                Dynamic High Resolution (DHR) effectively enhances the comprehension abilities of LVLMs, 
+                especially for OCR-related tasks. However, the extended context tokens resulting 
+                from this technique can induce remote decay, resulting in suboptimal performance for long-context tasks.
+              </p>
+              <div class="image-row" style="display: flex; justify-content: center; gap: 10px; margin: 20px 0;">
+                <img src="static/images/remote_decay.png" alt="teaser" style="max-width: 65%; height: auto;" />
+              </div>
+              <h2 class="subtitle has-text-centered" style="font-size: 1rem;">
+                Remote decay estimation for InternVL2-2B. The
+                relative distance refers to the difference between absolute
+                position IDs. In RoPE, the position ID of each input token
+                increments by 1 with the input sequence.
+              </h2>
+  
+              <h3>3. The Balance Between tow Pathways</h3>
+              <p>
+                Our findings reveal that the input image information for the two visual pathways and 
+                the number of training steps significantly influence their balance. 
+                Inappropriate visual allocation strategies or inadequate training steps 
+                can result in suboptimal model performance.
+              </p>
+              <div class="image-row" style="display: flex; justify-content: center; gap: 10px; margin: 20px 0;">
+                <img src="static/images/seesaw.png" alt="teaser" style="max-width: 65%; height: auto;" />
+              </div>
+              <h2 class="subtitle has-text-centered" style="font-size: 1rem;">
+                Balancing experiments. “1k”, “2k” and “4k” means pre-
+                train steps. All scores are evaluated after fine-tuning the
+                pretrained checkpoint corresponding to the x-axis.
+              </h2>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End paper abstract -->
+
+  <!-- Image carousel -->
+  <section class="section hero is-small">
+    <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">Method</h2>
+            <p>
+            We propose CoMemo, an architecture that employs a dual-path visual mechanism. 
+            One path, the context path, integrates textual context for contextual reasoning, while the other, 
+            the memory path, maintains continuous focus on visual information. 
+            Additionally, we introduce RoPE-DHR, a compression-based positional encoding scheme 
+            that preserves the two-dimensional information of images. 
+            To balance the dual paths, we propose a three-stage training strategy.
+          </p>
+          <div class="image-row" style="display: flex; justify-content: center; gap: 10px; margin: 20px 0;">
+            <img src="static/images/RoPE_DHR.png" alt="teaser" style="max-width: 30%; height: auto;" />
+            <img src="static/images/CoMemo_framework.png" alt="teaser" style="max-width: 53%; height: auto;" />
+          </div>
+        
+          <h2 class="subtitle has-text-centered" style="font-size: 1rem;">
+            <span style="font-weight: bold;">Left:</span> The computation
+            process of Rope-DHR. The
+            colors are assigned based on
+            a mapping of position IDs in
+            RoPE.<br>
+            <span style="font-weight: bold;">Right:</span> Framework of CoMemo. Both paths share
+            the same encoder and projector
+          </h2>
+      </div>
+    </div>
+  </div>
+  </section>
+  <!-- End image carousel -->
+
+  <!-- Image carousel -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">Main Results</h2>
+            <p>
+              To comprehensively evaluate CoMemo, we conducted experiments under the same model size (2B parameters) 
+              and training data size (InternVL2’s training data) settings. 
+              We selected benchmarks for the following tasks: 
+              Caption, Long-Context, Long Generation, Multi-Image, 
+              Math, General VQA, and OCR.
+          </p>
+          <br>
+          <h2 class="subtitle has-text-centered" style="font-size: 1rem;">
+          Table1: The results on Generation and Math benchmarks.
+          The highest
+          scores are highlighted in <span style="font-weight: bold;">bold</span>.
+          </h2>
+          <div class="image-row" style="display: flex; justify-content: center; gap: 10px; margin: 20px 0;">
+          <img src="static/images/caption.png" alt="teaser" style="max-width: 70%; height: auto;" />
+        </div>
+        <h2 class="subtitle has-text-centered" style="font-size: 1rem;">
+          Table2: The results on Multi-image and Long-context
+          benchmarks.
+          The highest
+          scores are highlighted in <span style="font-weight: bold;">bold</span>.
+          <sup>1</sup> LVLM-X’s single image token compression reduces average
+          context length by 50% (e.g., 32k→16k).
+          </h2>
+        <div class="image-row" style="display: flex; justify-content: center; gap: 10px; margin: 20px 0;">
+          <img src="static/images/multi_image.png" alt="teaser" style="max-width: 70%; height: auto;" />
+        </div>
+        <h2 class="subtitle has-text-centered" style="font-size: 1rem;">
+          Table3: The results on General VQA and OCR-related
+          benchmarks. 
+          The highest
+          scores are highlighted in <span style="font-weight: bold;">bold</span>.
+          </h2>
+        <div class="image-row" style="display: flex; justify-content: center; gap: 10px; margin: 20px 0;">
+          <img src="static/images/VQA.png" alt="teaser" style="max-width: 70%; height: auto;" />
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+  <!-- End image carousel -->
+
+    <!--BibTex citation -->
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>#</code></pre>
+      </div>
+    </section>
+    <!--End BibTex citation -->
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the
+              <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project
+                Page Template</a>
+              which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the of this website, we
+              just ask that you link back to this page in the footer. <br />
+              This website is licensed under a
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons
+                Attribution-ShareAlike 4.0 International
+                License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Statcounter tracking code -->
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
+</body>
+
+</html>
