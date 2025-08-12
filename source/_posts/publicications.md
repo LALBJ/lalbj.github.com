@@ -10,10 +10,28 @@ academia: true
 
 <table style="width: 100%;">  
   <tr>  
+    <td id="image-cell"><img id="pub-image" src="/img/ZeroGUI.png" alt="PAI" /></td>  
+    <td id="text-cell">  
+      <p id="title"><strong>ZeroGUI: Automating Online GUI Learning at Zero Human Cost</strong></p>  
+      <p id="authors">Chenyu Yang*, Shiqian Su*, <strong>Shi Liu*,</strong> Xuan Dong*, Yue Yu*, Weijie Su*, Xuehui Wang, Zhaoyang Liu, Jinguo Zhu, Hao Li, Wenhai Wang, Yu Qiao, Xizhou Zhu, Jifeng Dai</p>  
+      <p id="acceptance-status">Under Review</p>  
+      <!-- <p id="paper-links"> -->
+      <a id="pdf-link" href="https://arxiv.org/abs/2505.23762">Paper</a>  
+      <a id="code-link" href="https://github.com/OpenGVLab/ZeroGUI">Code</a>  
+      <!-- <a id="project-link" href="https://lalbj.github.io/projects/CoMemo/">Project Page</a>   -->
+      </p>
+    </td>  
+  </tr>  
+</table>  
+
+<hr style="border: none; border-top: 1px solid lightgray;">  
+
+<table style="width: 100%;">  
+  <tr>  
     <td id="image-cell"><img id="pub-image" src="/img/comemo.png" alt="PAI" /></td>  
     <td id="text-cell">  
       <p id="title"><strong>CoMemo: LVLMs need image context with image memory</strong></p>  
-      <p id="authors">Shi Liu, Weijie Su, Xizhou Zhu, Wenhai Wang, Jifeng Dai </p>  
+      <p id="authors"><strong>Shi Liu,</strong> Weijie Su, Xizhou Zhu, Wenhai Wang, Jifeng Dai </p>  
       <p id="acceptance-status">ICML 2025</p>  
       <!-- <p id="paper-links"> -->
       <a id="pdf-link" href="https://arxiv.org/pdf/2506.06279">Paper</a>  
@@ -31,7 +49,7 @@ academia: true
     <td id="image-cell"><img id="pub-image" src="/img/PAI.png" alt="PAI" /></td>  
     <td id="text-cell">  
       <p id="title"><strong>Paying More Attention to Image: A Training-Free Method for Alleviating Hallucination in LVLMs</strong></p>  
-      <p id="authors">Shi Liu, Kecheng Zheng, Wei Chen </p>  
+      <p id="authors"><strong>Shi Liu,</strong> Kecheng Zheng, Wei Chen </p>  
       <p id="acceptance-status">ECCV, 2024</p>  
       <p id="paper-links">
       <a id="pdf-link" href="https://arxiv.org/abs/2407.21771">Paper</a>  
@@ -49,7 +67,7 @@ academia: true
     <td id="image-cell"><img id="pub-image" src="/img/CA.png" alt="CA" /></td>  
     <td id="text-cell">  
       <p id="title"><strong>Conceptual Augmentation: Advancing Model Interpretability Through Language-Model Integration and Concept-Wise Explicability</strong></p>  
-      <p id="authors">Shi Liu, Lechao Cheng, Wei Chen</p>  
+      <p id="authors"><strong>Shi Liu,</strong> Lechao Cheng, Wei Chen</p>  
       <p id="acceptance-status">Under Review</p> 
       <!-- <p id="acceptance-status">European Conference on Computer Vision (ECCV), 2024</p>  
       <p id="paper-links">
